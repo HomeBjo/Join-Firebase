@@ -164,7 +164,13 @@ label{cursor: pointer;}
         }
     }
 }
+@media (max-width: 430px) {
+.userNameBox{
+         flex-direction: column; 
+     text-align: center;
+}
 
+}
 @media (max-width: 440px) {
 
     .everythingInIt{
@@ -191,7 +197,7 @@ label{cursor: pointer;}
             .contactBox{
                 height: 88px;
                 overflow: auto;
-                width: calc(100% - 126px);
+                width:auto;
             }
         }
     
@@ -224,4 +230,18 @@ label{cursor: pointer;}
         }
     }
    
+}
+
+@media (max-width: 381px) {
+    .assignetTo{
+        flex-direction: column;
+        width: auto;
+    }
+    .contactBox{
+        width: auto;
+    }
+    .userNameBox{
+         flex-direction: unset;
+         text-align: center;
+    }
 }

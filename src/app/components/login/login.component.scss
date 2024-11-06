@@ -33,11 +33,11 @@ section{
     @include displayFlex($g: 40px);
     z-index: 1;
     flex-direction: column;
-    min-width: 40vw;
     height: auto;
     border: 1px solid;
     border-radius: 25px;
     padding: 16px;
+    max-width: 650px;  
     .positionHeadline{
         @include displayFlex();
         flex-direction: column;

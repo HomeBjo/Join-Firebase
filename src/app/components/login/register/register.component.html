@@ -1,0 +1,48 @@
+<section>
+    <img src="assets/img/join-white.svg" alt="" class="logo">
+    <div class="whiteBox">
+        <img src="assets/img/arrow-left-line.svg" alt="" class="arrowLeft" routerLink="/login">
+        <div class="positionHeadline">
+            <h1 class="title">Sign in</h1>
+            <img src="assets/img/blueLine.svg" alt="">
+        </div>
+        <div class="inputDiv">
+            <div class="email">
+                <input type="text" [(ngModel)]="loginService.name" (keyup)="checkNameValue()" placeholder="Name">
+                <img src="assets/img/person.svg" alt="">
+            </div>
+ 
+                <span class="warningSpan" *ngIf="nameInvalid">Name must have min. 3 characters.</span>
+
+            <div class="email">
+                <input type="email" [(ngModel)]="loginService.email" (keyup)="checkMailValue()" placeholder="Email"/>
+                <img src="assets/img/mail.svg" alt="">
+            </div>
+           
+                <span class="warningSpan" *ngIf="emailInvalid">Mail is incorrect.</span>
+            
+            <div class="password">
+                <input type="password" [(ngModel)]="loginService.password1" (keyup)="checkPassword1Value()" placeholder="Password (min. 6 characters)"/>
+                <img src="assets/img/lock.svg" alt="">
+            </div>
+
+                <span class="warningSpan" *ngIf="password1Invalid">Password must have min. 6 charachters.</span>
+
+            <div class="password">
+                <input type="password" [(ngModel)]="loginService.password2" (keyup)="chackEqualPassword()"  placeholder="Confirm Password"/>
+                <img src="assets/img/lock.svg" alt="">
+            </div>
+
+                <span class="warningSpan" *ngIf="passwordMismatch">Passwords are unequal.</span>
+            
+        </div>
+        <div class="positionRememberUser">
+            <img src="assets/img/{{ acceptPolicy ? 'iconChecked.svg' : 'iconUnchecked.svg' }}" alt="" (click)="changeIcon()">
+            <p>I accept the <a routerLink="/datenschutzLogin">Privacy Policy</a></p>
+        </div>
+        <div class="buttonDiv">
+            <button (click)="loginService.register()" [disabled]="!disabledBtn()" 
+            [ngClass]="{'registerBtn': disabledBtn(), 'disabledBtn': !disabledBtn()}">Sign up</button>
+        </div>
+    </div>
+</section>

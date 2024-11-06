@@ -1,0 +1,56 @@
+@import "../../../styles.scss";
+
+section{
+    width: calc(100vw - 222px);
+    height: calc(100vh - 96px);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    .impressum{
+        width: calc(100% - 80px);
+        height: calc(100% - 80px);
+        margin: 40px;
+        overflow-y: auto;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;  
+        h1{
+            color: $blueButton;
+        }
+        strong{
+            color: $blueButton;
+        }
+    }
+    .impressum::-webkit-scrollbar { 
+        display: none;  
+    }
+}
+
+@media (max-width: 1380px) {
+    section{
+        width: 100%;
+        bottom: 0;
+        .impressum{
+            width: auto;
+            height: calc(100% - 102px);
+            margin: 0;
+            margin-left: 40px;
+            margin-right: 40px;
+            overflow-y: auto;
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            scrollbar-width: none;  /* Firefox */
+        }
+    }
+
+    .impressum::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
+    }
+}
+
+@media (max-width: 780px) {
+    section{
+        .impressum{
+            width: auto;
+            height: calc(100% - 74px);
+        }
+    }
+}

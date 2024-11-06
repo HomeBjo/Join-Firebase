@@ -1,0 +1,32 @@
+@import "../../../../styles.scss";
+
+section{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    .datenschutz{
+        width: calc(100% - 80px);
+        height: calc(100% - 80px);
+        margin: 40px;
+        overflow-y: auto;
+        .legal-title{
+            width: 100%;
+            @include displayFlex($j: space-between);
+        }
+    }
+}
+
+h1, h2, h3, h4{
+    color: $blueButton;
+    font-weight: 500;
+}
+
+img{
+    cursor: pointer;
+    margin-right: 4px;
+    &:hover{
+        scale: 1.1;
+    }
+}

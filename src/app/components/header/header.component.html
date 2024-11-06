@@ -1,0 +1,17 @@
+<section>
+    <img src="assets/img/join-white.svg" alt="" class="logo">
+    <div class="positionInitial">
+        <div class="initialBox" (click)="openOptionWindow($event)">
+            @if (getUserLetters()) {
+                <h1 class="letters">{{ firstLetter }}{{secondLetter}}</h1>
+            }
+        </div>
+        <div class="transparentBackground" (mouseleave)="closeWhiteWindow($event)" [ngClass]="{dBlock: toggleService.openWindowHeader  , dNone: !toggleService.openWindowHeader }">
+            <div class="whiteBox">
+                <p (click)="changeRout('impressum')">Legal Notice</p>
+                <p (click)="changeRout('datenschutz')">Privacy Policy</p>
+                <p (click)="loginService.logout()">Log out</p>
+            </div>
+        </div>
+    </div>
+</section>

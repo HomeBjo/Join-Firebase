@@ -1,0 +1,38 @@
+<section routerLink="/login">
+  <div class="logoHeader">
+    <div class="logoStartAnimation"></div>
+    <div class="logo"></div>
+  </div>
+  <div class="positionAddMember">
+    <span class="becomeMemberSpan">Not a Join user?</span>
+    <button routerLink="/register">Sing up</button>
+  </div>
+  <div class="positionWhiteBox">
+    <div class="positionHeadline">
+        <h1 class="title">Log in</h1>
+        <img src="assets/img/blueLine.svg" alt="">
+    </div>
+    @if(loginService.errorMessage){
+      <p class="error">{{ loginService.errorMessage }}</p>
+    }
+    <div class="inputDiv">
+      <div class="email">
+        <input type="email" [(ngModel)]="loginService.email" />
+        <img src="assets/img/mail.svg" alt="">
+      </div>
+      <div class="password">
+        <input type="password" [(ngModel)]="loginService.passwordLogin" />
+        <img src="assets/img/lock.svg" alt="">
+      </div>
+    </div>
+    <!-- <button class="googleBtn" (click)="googleLogin()"><img src="assets/img/googleIcon.webp" alt="">Sing in with Google</button> -->
+    <div class="buttonDiv">
+        <button (click)="loginService.login()">login</button>
+        <button (click)="loginService.guestLogin()" class="guestBtn">Guest login</button>
+    </div>
+  </div>
+</section>
+<div class="privacyPolicy">
+  <span routerLink="/datenschutzLogin">Privacy Policy</span>
+  <span routerLink="/impressumLogin">Legal Notice</span>
+</div>

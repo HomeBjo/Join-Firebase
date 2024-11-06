@@ -1,0 +1,1076 @@
+@import "../../../styles.scss";
+
+section{
+    width: calc(100vw - 222px);
+    height: calc(100dvh - 96px);
+}
+
+.allContacsBox{
+    width: 40%;
+    height: 100%;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 0px 0px 0px, rgba(0, 0, 0, 0.2) 2px 0px 5px 0px;
+    @include displayFlex($j: flex-start);
+    flex-direction: column;
+    overflow-y: scroll;
+    .stickyHeader{
+        box-shadow: 0 2px 4px -2px gray;
+        @include displayFlex($j: flex-start);
+        flex-direction: column;
+        position: sticky;
+        top: 0;
+        background-color: white;
+        width: 100%;
+        z-index: 2;
+        .inputBox{
+            width: 60%;
+            @include displayFlex($j: flex-start);
+            flex-direction: column;
+            input{
+                width: calc(100% - 18px);
+                height: 44px;
+                border: 1px solid gray;
+                outline: none;
+                margin-top: 16px;
+                border-radius: 10px;
+                padding: 8px;
+                font-size: larger;
+            }
+            div{
+                width: calc(100% - 16px);
+                max-height: 200px;
+                border-radius: 10px;
+                border: 1px solid gray;
+                z-index: 5;
+                @include displayFlex($j: flex-start);
+                flex-direction: column;
+                overflow-y: auto;
+                .renderFilteredUsers{
+                    width: calc(100% - 4px);
+                    height: auto;
+                    @include displayFlex($j: space-between);
+                    flex-direction: row;
+                    border: none;
+                    padding: 2px;
+                    &:hover{
+                        background-color: #c0d3f5;
+                        cursor: pointer;
+                    }
+                    p{
+                        font-weight: 300;
+                        height: auto;
+                        margin-bottom: 0;
+                    }
+                    .checkImg{
+                        width: 20px;
+                        height: 20px;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+ 
+    button{
+        width: 56%;
+        height: 56px;
+        background-color: #4589FF;
+        border: 1px;
+        border-radius: 10px;
+        cursor: pointer;
+        @include displayFlex();
+        font-size: 22px;
+        font-weight: 400;
+        color: white;
+        margin: 16px;
+        img{
+            margin-left: 8px;
+        }
+    }
+}
+
+.showSearchWindow {
+    animation: shwoSW 0.3s ease-in-out;
+    width: calc(100% - 16px);
+    max-height: 200px;
+    padding: 16px;
+}
+  
+@keyframes shwoSW {
+    from {
+      max-height: 0;
+    }
+    to {
+      max-height: 200px;
+      padding: 16px;
+    }
+}
+  
+.hideSearchWindow {
+    animation: hideSW 0.3s ease-in-out;
+    width: calc(100% - 16px);
+    max-height: 0;
+    padding: 0;
+}
+  
+@keyframes hideSW {
+    from {
+      max-height: 200px;
+      padding: 16px;
+    }
+    to {
+      max-height: 0;
+      padding: 16px;
+    }
+}
+
+
+.grayBackground{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100dvh;
+    z-index: 10;
+    background-color: rgba(128, 128, 128, 0.2);
+    .userRightWindow{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 32%;
+        height: 100dvh;
+        z-index: 10;
+        animation: slideinRightWindow 0.5s ease-in-out;
+        .bleueTop{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 40%;
+            background-color: #176CFF;
+            border-top-left-radius: 25px;
+            z-index: 3;
+            .closeAddContactBox{
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                cursor: pointer;
+                transition: 0.2s ease-in-out;
+                &:hover{
+                    scale: 1.1;
+                }
+            }
+            .positionLetters{
+                height: 100%;
+                @include displayFlex($g: 12px);
+                flex-direction: column;
+                color: white;
+                text-align: center;
+                img{
+                    width: 64px;
+                    height: 72px;
+                    object-fit: contain;
+                    padding-top: 12px;
+                }
+                h1{
+                    font-size: 44px;
+                    margin: 0;
+                    margin-top: 16px;
+                }
+                p{
+                    font-size: 24px;
+                    font-weight: 300;
+                    margin-top: 8px;
+                }
+            }
+        }
+        .whiteBox{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60%;
+            background-color: white;
+            border-bottom-left-radius: 25px;
+            z-index: 10;
+            @include displayFlex();
+            flex-direction: column;
+            .imgBackground{
+                width: 120px;
+                height: 120px;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                object-fit: cover;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-self: center;
+                margin-bottom: 8px;
+            }
+            .inputBox{
+                width: 300px;
+                height: auto;
+                position: relative;
+                .inputBoxWithImg{
+                    @include displayFlex();
+                    width: 100%;
+                    position: relative;
+                    margin-bottom: 32px;
+                    input{
+                        border: 0px;
+                        border-bottom: 1px solid rgba(209, 209, 209, 1);
+                        padding: 13px 32px 0px 16px;
+                        gap: 10px;
+                        display: flex;
+                        font-weight: 400;
+                        font-size: 16px;
+                        outline: none;
+                        border-radius: 0;
+                        width: 320px;
+                    }
+                    img{
+                        margin-left: -28px;
+                    }
+                    p{
+                        position: absolute;
+                        bottom: -32px;
+                        left: 0;
+                        padding-left: 16px;
+                        color: #176CFF;
+                    }
+                }
+            }
+            .btnBox{
+                @include displayFlex($g: 24px);
+                .closeBtn{
+                    padding: 12px;
+                    border-radius: 5px;
+                    background-color: white;
+                    color: #647188;
+                    border: 1px solid #647188;
+                    font-size: 16px;
+                    z-index: 11;
+                    width: auto;
+                    height: 40px;
+                    cursor: pointer;
+                    &:hover {
+                        outline: 0.1px solid #4589ff;
+                        color: #4589ff;
+                        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+                    }
+                    &:hover img{
+                        filter: invert(47%) sepia(53%) saturate(6716%) hue-rotate(208deg) brightness(101%) contrast(101%);
+                    }
+                    img{
+                        width: 14px;
+                        height: 14px;
+                        object-fit: contain;
+                        margin-left: 8px;
+                    }
+                }
+                .saveBtn{
+                    padding: 12px;
+                    background-color: #4589FF;
+                    border: 1px #4589FF;
+                    border-radius: 5px;
+                    color: white;
+                    font-size: 16px;
+                    z-index: 11;
+                    width: auto;
+                    height: 40px;
+                    cursor: pointer;
+                    transition: 0.3s ease-in-out;
+                    &:hover{
+                        background-color: #176cff;
+                        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+                    }
+                    img{
+                        width: 14px;
+                        height: 14px;
+                        object-fit: contain;
+                        margin-left: 8px;
+                    }
+                }
+                .disabledBtn{
+                    width: auto;
+                    height: 40px;
+                    border: none;
+                    padding: 12px;
+                    color: white;
+                    font-size: 16px;
+                    background-color: #a3a5a7;
+                    cursor: context-menu;
+                    transition: 0.3s ease-in-out;
+                    &:hover{
+                        background-color: #a3a5a7;
+                        box-shadow: none
+                    }
+                }
+            }
+        }
+    }
+}
+
+.renderAllContacts{
+    width: 100%;
+    
+    @include displayFlex($j: flex-start); 
+    flex-direction: column;
+    .firstCharacter{
+        @include displayFlex($j: flex-start); 
+        width: calc(100% - 64px);
+        margin: 32px;
+        margin-bottom: 8px;
+        border-bottom: 1px solid gray;
+        span{
+            font-size: 24px;
+        }
+    }
+    .loadedUsers{
+        width: calc(100% - 48px);
+        @include displayFlex($j: flex-start, $g: 12px); 
+        border-radius: 5px;
+        padding: 2px;
+        padding-left: 16px;
+        padding-right: 8px;
+        cursor: pointer;
+        &:hover{
+            background-color: #64718821;
+        }
+        .ringFromUser{
+            min-width: 40px;
+            min-height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+            @include displayFlex(); 
+            margin: 4px;
+            .tagFromUser{
+                min-width: 32px;
+                min-height: 32px;
+                object-fit: cover;
+                border-radius: 50%;
+                @include displayFlex(); 
+                color: white;
+                font-weight: 500;
+            }
+        }
+        .userNameAndChackbox{
+            width: 100%;
+            @include displayFlex($j: space-between); 
+            span{
+                cursor: pointer;
+                font-size: large;
+            }
+        }
+        
+    }
+}
+
+span{
+    @include displayFlex(); 
+}
+
+@keyframes slideinRightWindow {
+    from{
+        transform: translateX(110%);
+        // top: -96px;
+
+    }
+    to{
+        transform: translateX(0);
+        // top: -96px;
+
+    }
+}
+
+.slideInRight{
+    transform: translateX(120%);
+    top: -96px;
+}
+
+.inputNumber::-webkit-outer-spin-button,
+.inputNumber::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.inputNumber[type=number] {
+    -moz-appearance: textfield; 
+    -webkit-appearance: none;   
+    appearance: none;  
+}
+
+.positionUserContactBoXX{
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 160px;
+    left: 54%;
+    .positionUserContactBox{
+        width: auto;
+        height: auto;
+        @include displayFlex($j: flex-start, $a: flex-start, $g: 40px); 
+        flex-direction: column;
+        .userContactHeader{
+            @include displayFlex($j: flex-start, $g: 56px); 
+            margin-left: 4px;
+            .positionBackground{
+                min-width: 132px;
+                min-height: 132px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: white;
+                border-radius: 50%;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                .backgroundColor{
+                    width: 122px;
+                    height: 122px;
+                    @include displayFlex();
+                    border-radius: 50%;
+                    p{
+                        text-align: left;
+                        font-size: 59px; 
+                        color: white;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            .positionName{
+                @include displayFlex($j: flex-start, $a:flex-start, $g: 16px); 
+                flex-direction: column;
+                h1{
+                    flex-direction: column;
+                    font-size: 40px;
+                    font-weight: bold;
+                    margin: 0;
+                }
+                .positionEditDelete{
+                    @include displayFlex($j: flex-start, $g: 20px); 
+                    .editBox{
+                        @include displayFlex($g: 8px); 
+                        transition: 0.2s ease-in-out;
+                        cursor: pointer;
+                        &:hover{
+                            color: #176cff;
+                            transform: scale(1.1);
+                            font-weight: bolder;
+                        }
+                    }
+                }
+            }
+        }
+        .positionContactInfo{
+            @include displayFlex($a:flex-start, $g: 16px); 
+            flex-direction: column;
+            h2{
+                font-size: xx-large;
+            }
+            h3{
+                font-size: x-large;
+            }
+            a{
+                text-decoration: none;
+                color: #2776ff;
+                font-size: large;
+            }
+            p{
+                color: #176CFF;
+                font-size: large;
+            }
+        }
+    }
+}
+
+.slideInContactInfo{
+    animation: slideInContactInfo 0.3s linear;
+    transform: translateX(0);
+}
+
+@keyframes slideInContactInfo {
+    from {
+      transform: translateX(110%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+.slideOutContactInfo{
+    animation: slideOutContactInfo 0.3s linear;
+    transform: translateX(110%);
+}
+
+@keyframes slideOutContactInfo {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(110%);
+      opacity: 0;
+    }
+  }
+
+.grayBackgroundLeft{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100dvh;
+    background-color: rgba(128, 128, 128, 0.2);
+    z-index: 10;
+    .userLeftWindow{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 36%;
+        height: 100dvh;
+        z-index: 12;
+        animation: slideinLeftWindow 0.5s ease-in-out;
+        .bleueTopLeft{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 40%;
+            background-color: #176CFF;
+            border-top-right-radius: 25px;
+            z-index: 12;
+            box-shadow: rgb(155 157 159) 1px 0px 3px 0px inset{};
+            .closeAddContactBox{
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                cursor: pointer;
+                transition: 0.2s ease-in-out;
+                &:hover{
+                    scale: 1.1;
+                }
+            }
+            .positionLetters{
+                height: 100%;
+                @include displayFlex($g: 12px);
+                flex-direction: column;
+                color: white;
+                text-align: center;
+                img{
+                    width: 64px;
+                    height: 72px;
+                    object-fit: contain;
+                    padding-top: 12px;
+                }
+                h1{
+                    font-size: 44px;
+                    margin: 0;
+                    margin-top: 16px;
+                }
+            }
+        }
+        .whiteBox{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60%;
+            background-color: white;
+            border-bottom-right-radius: 25px;
+            z-index: 12;
+            @include displayFlex($g: 16px);
+            flex-direction: column;
+            box-shadow: rgb(155 157 159) 1px 0px 3px 0px inset;
+            .imgBackground{
+                width: 134px;
+                height: 134px;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                object-fit: cover;
+                border-radius: 50%;
+                @include displayFlex();
+                margin-bottom: 8px;
+                background-color: white;
+                .imgBackgroundEdit{
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                    @include displayFlex();
+                    span{
+                        color: white;
+                        font-size: 59px;
+                        @include displayFlex();
+                    }
+                }
+            }
+            .inputBox{
+                width: auto;
+                height: auto;
+                .inputBoxWithImgLeft{
+                    @include displayFlex();
+                    width: 320px;
+                    position: relative;
+                    margin-bottom: 28px;
+                    input{
+                        border: 0px;
+                        border-bottom: 1px solid rgba(209, 209, 209, 1);
+                        padding: 13px 32px 0px 16px;
+                        gap: 10px;
+                        display: flex;
+                        font-weight: 400;
+                        font-size: 16px;
+                        outline: none;
+                        border-radius: 0;
+                        width: 100%;
+                    }
+                    img{
+                        margin-left: -28px;
+                    }
+                    p{
+                        position: absolute;
+                        bottom: -32px;
+                        left: 0;
+                        margin-left: 16px;
+                        color: #176CFF;
+                    }
+                }
+            }
+            .btnBoxLeft{
+                @include displayFlex($g: 24px);
+                .closeBtn{
+                    padding: 12px;
+                    border-radius: 5px;
+                    background-color: white;
+                    color: #647188;
+                    border: 1px solid #647188;
+                    font-size: 16px;
+                    z-index: 11;
+                    width: auto;
+                    height: 40px;
+                    cursor: pointer;
+                    &:hover {
+                        outline: 0.1px solid #4589ff;
+                        color: #4589ff;
+                        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+                    }
+                    &:hover img{
+                        filter: invert(47%) sepia(53%) saturate(6716%) hue-rotate(208deg) brightness(101%) contrast(101%);
+                    }
+                    img{
+                        width: 14px;
+                        height: 14px;
+                        object-fit: contain;
+                        margin-left: 8px;
+                    }
+                }
+                .saveBtnLeft{
+                    padding: 12px;
+                    background-color: #4589FF;
+                    border: 1px #4589FF;
+                    border-radius: 5px;
+                    color: white;
+                    font-size: 16px;
+                    z-index: 11;
+                    width: auto;
+                    height: 40px;
+                    cursor: pointer;
+                    transition: 0.3s ease-in-out;
+                    &:hover{
+                        background-color: #176cff;
+                        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+                    }
+                    img{
+                        width: 14px;
+                        height: 14px;
+                        object-fit: contain;
+                        margin-left: 8px;
+                    }
+                }
+                .disabledBtnLeft{
+                    width: auto;
+                    height: 40px;
+                    border: none;
+                    padding: 12px;
+                    color: white;
+                    font-size: 16px;
+                    background-color: #a3a5a7;
+                    cursor: context-menu;
+                    transition: 0.3s ease-in-out;
+                    &:hover{
+                        background-color: #a3a5a7;
+                        box-shadow: none
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes slideinLeftWindow {
+    from{
+        transform: translateX(-100%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+.arrowRightSide{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 24px;
+    cursor: pointer;
+    z-index: 3;
+    &:hover{
+        scale: 1.1;
+    }
+}
+
+.moreVertImg{
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 22px;
+    background-color: #4589FF;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.styleResponsiveEdit{
+    display: none;
+    width: 120px;
+    height: 80px;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.20);
+    background-color: white;
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+    z-index: 100;
+    @include displayFlex($j: space-around, $a: flex-start);
+    flex-direction: column;
+    margin: 16px;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    .editBox2{
+        @include displayFlex($g: 8px); 
+        transition: 0.2s ease-in-out;
+        margin-left: 20px;
+        cursor: pointer;
+        &:hover{
+            color: #176cff;
+            transform: scale(1.1);
+            font-weight: bolder;
+        }
+    }
+}
+
+// ----------------------------- mobile ----------------------------------
+
+@media (max-width: 1380px) {
+    section{
+        width: 100vw;
+        height: calc(100dvh - 196px);
+        @include displayFlex();
+        box-shadow: -5px 0 5px -5px rgba(51, 51, 51, 0.2705882353), 5px 0 5px -5px rgba(51, 51, 51, 0.2705882353);
+    }
+
+    .allContacsBox{
+        width: 56%;
+    }
+
+    .positionUserContactBoXX {
+        width: 100vw;
+        height: calc(100dvh - 196px);
+        background-color: white;
+        left: 0;
+        top: 96px;
+        bottom: 0;
+        z-index: 2;
+        @include displayFlex();
+        position: fixed; 
+    }
+
+    .grayBackground{
+        position: fixed;  
+    }
+
+    .grayBackgroundLeft{
+        position: fixed;
+    }
+}
+
+@media (max-width: 1380px) {
+    .allContacsBox{
+        width: 100%;
+    }
+
+    .grayBackground{
+        .userRightWindow{
+            width: 50%;
+        }
+    }
+
+    .grayBackgroundLeft{
+        .userLeftWindow{
+            width: 50%;
+        }
+    }  
+    
+    .allContacsBox{
+        width: 100%;
+        .stickyHeader{
+            .inputBox{
+                width: 60%;
+                input{
+                    width: 50%;
+                }
+                div{
+                    width: 50%;
+                }
+            }
+        }
+        button{
+            width: 30%;
+            height: 44px;
+            font-size: 18px;
+        }
+    }
+
+    .showSearchWindow {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 780px) {
+    section{
+        height: calc(100dvh - 168px);
+    }
+
+    .positionUserContactBoXX {
+        height: calc(100dvh - 168px);
+        .positionUserContactBox{
+            .userContactHeader{
+                @include displayFlex($j: flex-start, $g: 24px); 
+                .positionBackground{
+                    min-width: 96px;
+                    min-height: 96px;
+                    .backgroundColor{
+                        width: 84px;
+                        height: 84px;
+                        p{
+                            font-size: 46px; 
+                        }
+                    }
+                }
+                .positionName{
+                    h1{
+                        font-size: 32px;
+                    }
+                }
+            }
+            .positionContactInfo{
+                @include displayFlex($a:flex-start, $g: 16px); 
+                flex-direction: column;
+                h2{
+                    font-size: x-large;
+                }
+                h3{
+                    font-size: large;
+                }
+                a{
+                    font-size: medium;
+                }
+                p{
+                    font-size: medium;
+                }
+            }
+        }
+    }
+
+    .grayBackground{
+        .userRightWindow{
+            width: 100%;
+            .bleueTop{
+                border-radius: 0;
+            }
+            .whiteBox{
+                border-radius: 0;
+            }
+        }    
+    }
+
+    .grayBackgroundLeft{
+        .userLeftWindow{
+            width: 100%;
+            .bleueTopLeft{
+                border-radius: 0;
+            }
+            .whiteBox{
+                border-radius: 0;
+            }
+        }
+    } 
+}
+
+@media (max-width: 440px) {
+
+    .allContacsBox{
+        .stickyHeader{
+            .inputBox{
+                width:60%;
+                input{
+                    width: 80%;
+                }
+                div{
+                    width: 80%;
+                }
+            }
+        }
+        button{
+            width: 48%;
+        }
+    }
+
+    .grayBackground{
+        .userRightWindow{
+            .bleueTop{
+                height: 34%;
+            }
+            .whiteBox{
+                height: 66%;
+                .imgBackground{
+                    width: 96px;
+                    height: 96px;
+                }
+            }
+        }
+    }
+
+
+
+    .grayBackgroundLeft{
+        .userLeftWindow{
+            .bleueTopLeft{
+                height: 34%;
+            }
+            .whiteBox{
+                height: 66%;
+                .imgBackground{
+                    width: 104px;
+                    height: 104px;
+                    .imgBackgroundEdit{
+                        width: 92px;
+                        height: 92px;
+                        span{
+                            font-size: 52px;
+                        }
+                    }
+                }
+                .inputBox{
+                    width: auto;
+                    height: auto;
+                    .inputBoxWithImgLeft{
+                        @include displayFlex();
+                        width: 320px;
+                        position: relative;
+                        margin-bottom: 28px;
+                        input{
+                            border: 0px;
+                            border-bottom: 1px solid rgba(209, 209, 209, 1);
+                            padding: 13px 32px 0px 16px;
+                            gap: 10px;
+                            display: flex;
+                            font-weight: 400;
+                            font-size: 16px;
+                            outline: none;
+                            border-radius: 0;
+                            width: 100%;
+                        }
+                        img{
+                            margin-left: -28px;
+                        }
+                        p{
+                            position: absolute;
+                            bottom: -32px;
+                            left: 0;
+                            margin-left: 16px;
+                            color: #176CFF;
+                        }
+                    }
+                }
+                .btnBoxLeft{
+                    @include displayFlex($g: 24px);
+                    .closeBtn{
+                        padding: 12px;
+                        border-radius: 5px;
+                        background-color: white;
+                        color: #647188;
+                        border: 1px solid #647188;
+                        font-size: 16px;
+                        z-index: 11;
+                        width: auto;
+                        height: 40px;
+                        cursor: pointer;
+                        &:hover {
+                            outline: 0.1px solid #4589ff;
+                            color: #4589ff;
+                            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+                        }
+                        &:hover img{
+                            filter: invert(47%) sepia(53%) saturate(6716%) hue-rotate(208deg) brightness(101%) contrast(101%);
+                        }
+                        img{
+                            width: 14px;
+                            height: 14px;
+                            object-fit: contain;
+                            margin-left: 8px;
+                        }
+                    }
+                    .saveBtnLeft{
+                        padding: 12px;
+                        background-color: #4589FF;
+                        border: 1px #4589FF;
+                        border-radius: 5px;
+                        color: white;
+                        font-size: 16px;
+                        z-index: 11;
+                        width: auto;
+                        height: 40px;
+                        cursor: pointer;
+                        transition: 0.3s ease-in-out;
+                        &:hover{
+                            background-color: #176cff;
+                            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+                        }
+                        img{
+                            width: 14px;
+                            height: 14px;
+                            object-fit: contain;
+                            margin-left: 8px;
+                        }
+                    }
+                    .disabledBtnLeft{
+                        width: auto;
+                        height: 40px;
+                        border: none;
+                        padding: 12px;
+                        color: white;
+                        font-size: 16px;
+                        background-color: #a3a5a7;
+                        cursor: context-menu;
+                        transition: 0.3s ease-in-out;
+                        &:hover{
+                            background-color: #a3a5a7;
+                            box-shadow: none
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,225 @@
+@import "../../../../../../styles.scss";
+
+section{
+    width: 100%;
+    height: 100%;
+    @include displayFlex($j: flex-start, $a:flex-start);
+    flex-direction: column;
+    position: relative;
+    cursor: default;
+}
+
+.imgBox{
+    width: 100%;
+    height: auto;
+    .closeImg{
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        margin-right: -12px;
+        &:hover{
+            scale: 1.1;
+        }
+    }
+}
+
+.everythingInIt{
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 32px);
+    overflow-y: scroll;
+    @include displayFlex($j: space-evenly, $a: flex-start); 
+    flex-direction: column;
+    padding-right: 8px;
+    .category{
+        width: 100%;
+        margin-top: 12px;
+        span{
+            font-weight: 400;
+            font-size: 23px;
+        }
+    }
+
+    h1{
+        word-wrap: break-word;
+        height: auto;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 42px;
+        margin-top: 16px;
+        width: 100%;
+    }
+    
+    .description{
+        height: auto;
+        margin-top: 25px;
+        word-wrap: break-word;
+        font-weight: 300;
+        font-size: 20px;
+        padding-bottom: 20px;
+    }
+    
+    .technicalTask{
+        border-radius: 12px;
+        background: #ff7a00;
+        padding: 8px;
+        color: white;
+        font-weight: 400;
+    }
+    
+    .userStory{
+        border-radius: 12px;
+        background: #0ada1b;
+        padding: 8px;
+        color: white !important;
+        font-weight: 400;
+    }
+
+    h2{
+        margin-top: 12px;
+    }
+    
+    .assignetTo{
+        display: flex;
+        width: 100%;
+        .contactBox{
+            @include displayFlex($j: flex-start, $a:flex-start, $g: 4px);
+            flex-direction: column;
+            margin-left: 12px;
+            height: 134px;
+            overflow: auto;
+            width: calc(100% - 126px);
+            .userNameBox{
+                @include displayFlex($g: 12px);
+                margin: 4px;
+                margin-left: 8px;
+                margin-right: 8px;
+                .userBackground{
+                    box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+                    border: 4px solid white;
+                    min-height: 32px;
+                    min-width: 32px;
+                    border-radius: 50%;
+                    @include displayFlex();
+                    color: white !important;
+                }
+            }
+        }
+    }
+    
+    .boxOfSubtasks{
+        height: 82px;
+        margin-bottom: 12px;
+        width: 100%;
+        word-wrap: break-word;
+        overflow: auto;
+        .renderSubtask{
+            @include displayFlex($j: flex-start, $g: 12px);
+            width: 100%;
+        }
+    }
+    
+    
+    .buttonBox{
+        width: 100%;
+        cursor: default;
+        @include displayFlex($j: space-between); 
+        .buttonBoxposition{
+            width: 100%;
+            @include displayFlex($j: flex-end,$g: 8px); 
+            margin-bottom: 10px;
+            button{
+                @include displayFlex($g: 8px); 
+                background-color: white;
+                border: 2px solid #176cff;
+                border-radius: 10px;
+                padding: 8px;
+                transition: 0.2s ease-in-out;
+                cursor: pointer;
+                &:hover{
+                    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+                    border: 2px solid #5995fc;
+                }
+            }
+        }
+    }
+}
+
+label{cursor: pointer;}
+
+@media (max-width: 620px) {
+    .everythingInIt{
+        .assignetTo{
+            .contactBox{
+                .userNameBox{
+                    .userBackground{
+                        font-size: smaller;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 440px) {
+
+    .everythingInIt{
+        .category{
+            span{
+                font-size: 16px;
+            }
+        }
+    
+        .technicalTask{
+            padding: 6px;
+        }
+        
+        .userStory{
+            padding: 6px;
+        }
+    
+        h1{
+            font-size: 26px;
+            margin-bottom: 0;
+        }
+    
+        .assignetTo{
+            .contactBox{
+                height: 88px;
+                overflow: auto;
+                width: calc(100% - 126px);
+            }
+        }
+    
+        .description{
+            margin-top: 12px;
+            font-weight: 400;
+            font-size: 16px;
+            padding-bottom: 12px;
+        }
+        
+        h2{
+            margin-bottom: 4px;
+            margin-top: 4px;
+        }
+    
+        .buttonBox{
+            span{
+                font-size: small;
+            }
+            .buttonBoxposition{
+                width: calc(100% - 8px);
+                margin-right: 8px;
+                button{
+                    @include displayFlex($g: 4px); 
+                    border: 2px solid #176cff;
+                    padding: 4px;
+                }
+            }
+        }
+    }
+   
+}

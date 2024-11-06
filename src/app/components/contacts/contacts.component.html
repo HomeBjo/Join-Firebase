@@ -1,0 +1,179 @@
+<section>
+    <div class="allContacsBox">
+    <!-------------------add user header------------------>
+        <div class="stickyHeader">
+            <div class="inputBox">
+                <input type="text" placeholder="Search user" (keyup)="getHeaderInputValue($event)" [(ngModel)]="toggleService.headerInputValue">
+                @if (checkInputInSidebar()) {
+                    <div [ngClass]="{showSearchWindow: checkInputInSidebar(), hideSearchWindow: !checkInputInSidebar()}" class="renderedUsers">
+                        @if (searchBarUsersArray.length > 0) {
+                            @for (user of searchBarUsersArray; track $index) {
+                                <div class="renderFilteredUsers" (click)="addUserToContacts(user, $event)">
+                                    <p>{{user.firstName!}} {{user.lastName}}</p>
+                                    <img src="assets/img/subtask_icons.svg" alt="" class="checkImg">
+                                </div>
+                            }
+                        } @else {
+                            <p style="margin-bottom: 0;">No user found</p>
+                        }
+                    </div>
+                }
+            </div>
+            <button (click)="openAddContactWindow($event)">Add new member  <img src="assets/img/person_add.svg" alt=""></button>
+        </div>
+    <!-------------------render user rightWindow------------------>
+        <div class="grayBackground" (click)="returnBack()" [ngClass]="{dBlock: closeUserWindow , dNone: !closeUserWindow}">
+            <div class="userRightWindow" [ngClass]="{showRightWindow: closeUserWindow}">
+                <div class="bleueTop" (click)="stopPropagation($event)">
+                    <img src="assets/img/closeInWhite.svg" alt="" class="closeAddContactBox" (click)="returnBack()">
+                    <div class="positionLetters">
+                        <img src="assets/img/capa1.svg" alt="">
+                        <h1>Add Contact</h1>
+                        <p>Tasks are better with a team!</p>
+                    </div>
+                </div>
+                <div class="whiteBox" (click)="stopPropagation($event)">
+                    <img src="assets/img/frame79.svg" alt="" class="imgBackground">
+                    <div class="inputBox">
+                        <div class="inputBoxWithImg">
+                            <input type="text" [(ngModel)]="name"  placeholder="Enter name (min. 3 char.)">
+                            <img src="assets/img/person.svg" alt="">
+                            <p>(requiert)</p>
+                        </div>
+                        <div class="inputBoxWithImg">
+                            <input type="email" [(ngModel)]="email"  placeholder="Enter email" pattern="[^@]+@[^\.]+\..+">
+                            <img src="assets/img/mail.svg" alt="">
+                            <p>(requiert)</p>
+                        </div>
+                        <div class="inputBoxWithImg">
+                            <input type="number" [(ngModel)]="phoneNr" class="inputNumber"  placeholder="Enter number">
+                            <img src="assets/img/call.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="btnBox">
+                        <span class="closeBtn" (click)="returnBack()">Close<img src="assets/img/vector.svg" alt=""></span>
+                        <span class="saveBtn" (click)="saveUserData()" [ngClass]="checkCurrentData() ? 'saveBtn' : 'disabledBtn'"
+                        >Create<img src="assets/img/check.svg" alt=""></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-------------------render users------------------>
+        @if (SortedContacts.length > 0) {
+            <div class="renderAllContacts">
+                @for (user of showUserContacts(); track $index) {
+                    @if (getFirstCharacter(user)) {
+                        <div class="firstCharacter">
+                            <span>{{firstChar}}</span>
+                        </div>
+                    }
+                    <div class="loadedUsers" (click)="showContactDetails(user)">
+                        <div class="ringFromUser">
+                            <span class="tagFromUser" *ngIf="user.color!" [style.backgroundColor]="user.color!">{{getUserFirstLetter(user)}}{{getUserSecondLetter(user)}}</span>
+                        </div>
+                        <div class="userNameAndChackbox">
+                            <span>{{user.firstName}} {{user.lastName}}</span>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    <!-------------------render user details------------------>
+        @if(userDetails !==''){
+            <div class="positionUserContactBoXX">
+                @if (!checkWidthWindow()) {
+                    <img src="assets/img/arrow-left-line.svg" alt="" class="arrowRightSide" (click)="returnBack()">
+                }
+                <div class="positionUserContactBox" [ngClass]="{slideInContactInfo: userDetails !=='', dNone: userDetails ==''}">
+                    <div class="userContactHeader">
+                        <div class="positionBackground">
+                            <div *ngIf="userDetails.color" [style.backgroundColor]="userDetails.color" class="backgroundColor">
+                                <p>{{getUserFirstLetter(userDetails)}}{{getUserSecondLetter(userDetails)}}</p>
+                            </div>
+                        </div>
+                        <div class="positionName">
+                            <h1>{{userDetails.firstName}} {{userDetails.lastName}}</h1>
+                            @if (checkWidthWindow()) {
+                                <div class="positionEditDelete" >
+                                    <div class="editBox" (click)="editContact(userDetails)">
+                                        <img src="assets/img/edit.svg" alt="">
+                                        <span>Edit</span>
+                                    </div>
+                                    <div class="editBox" (click)="deleteContact(userDetails)">
+                                        <img src="assets/img/delete.svg" alt="">
+                                        <span>Delete</span>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="positionContactInfo">
+                        <h2>Contact Information</h2>
+                        <h3>Email</h3>
+                        <a href="mailto:{{userDetails.email}}">{{userDetails.email}}</a>
+                        <h3>Phone</h3>
+                        @if (userDetails.phoneNumber == '') {
+                            <p>no number available</p>
+                        }
+                        <p>{{userDetails.phoneNumber}}</p>
+                    </div>
+                </div>
+                @if (!checkWidthWindow()) {
+                    <img src="assets/img/more_vert.svg" alt="" class="moreVertImg" (click)="openEditDeleteWindow($event)">
+                }
+                @if (toggleService.openEditDeleteWindow) {
+                    <div [ngClass]="{slideInContactInfo: toggleService.openEditDeleteWindow, dNone: !toggleService.openEditDeleteWindow}" class="styleResponsiveEdit">
+                        <div class="editBox2" (click)="editContact(userDetails)">
+                            <img src="assets/img/edit.svg" alt="">
+                            <span>Edit</span>
+                        </div>
+                        <div class="editBox2" (click)="deleteContact(userDetails)">
+                            <img src="assets/img/delete.svg" alt="">
+                            <span>Delete</span>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    <!-------------------render user leftWindow------------------>
+        <div class="grayBackgroundLeft"  [ngClass]="{dBlock: closeUserEditWindow , dNone: !closeUserEditWindow}" (click)="returnBack()">
+            <div class="userLeftWindow" [ngClass]="{slideinLeftWindow: closeUserEditWindow}">
+                <div class="bleueTopLeft" (click)="stopPropagation($event)">
+                    <img src="assets/img/closeInWhite.svg" alt="" class="closeAddContactBox" (click)="returnBack()">
+                    <div class="positionLetters">
+                        <img src="assets/img/capa1.svg" alt="">
+                        <h1>Edit Contact</h1>
+                    </div>
+                </div>
+                <div class="whiteBox" (click)="stopPropagation($event)">
+                    <div class="imgBackground">
+                        <div *ngIf="getUserToEdit.color" [style.backgroundColor]="getUserToEdit.color" class="imgBackgroundEdit">
+                            <span>{{getUserFirstLetter(getUserToEdit)}}{{getUserSecondLetter(userDetails)}}</span>
+                        </div>
+                    </div>
+                    <div class="inputBox">
+                        <div class="inputBoxWithImgLeft">
+                            <input type="text" [(ngModel)]="editName"  placeholder="Enter name (min. 3 char.)" >
+                            <img src="assets/img/person.svg" alt="">
+                            <p>(requiert)</p>
+                        </div>
+                        <div class="inputBoxWithImgLeft">
+                            <input type="email" [(ngModel)]="editEmail"  placeholder="Enter email" pattern="[^@]+@[^\.]+\..+" >
+                            <img src="assets/img/mail.svg" alt="">
+                            <p>(requiert)</p>
+                        </div>
+                        <div class="inputBoxWithImgLeft">
+                            <input type="number" [(ngModel)]="editPhoneNr" class="inputNumber"  placeholder="Enter number" >
+                            <img src="assets/img/call.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="btnBoxLeft">
+                        <span class="closeBtn" (click)="returnBack()">Close<img src="assets/img/vector.svg" alt=""></span>
+                        <span class="saveBtnLeft" (click)="saveUserEditData()" [ngClass]="checkEditData() ? 'saveBtnLeft' : 'disabledBtnLeft'"
+                        >Save<img src="assets/img/check.svg" alt=""></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

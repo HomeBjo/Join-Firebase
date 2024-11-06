@@ -1,0 +1,510 @@
+@import "../../../styles.scss";
+
+section{
+    width: calc(100vw - 222px);
+    height: calc(100dvh - 96px);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    @include displayFlex();
+    overflow: hidden;
+    .contantBox{
+        width: 912px;
+        height: 591px;
+        @include displayFlex($j: space-between);
+        flex-direction: column;
+    }
+}
+
+.positionGreed{
+    @include displayFlex();
+    width: 100%;
+    .greed{
+        color: #2A3647;
+        font-size: 48px;
+        font-weight: 500;
+    }
+    .userNmae{
+        color: #4589FF;
+        font-size: 54px;
+        font-weight: 700;
+    }
+}
+
+.taskRow1{
+    width: 100%;
+    @include displayFlex($j: space-between, $g: 28px);
+    .blueTask{
+        width: 672px;
+        height: 191px;
+        background-color: #4589FF;
+        color: white;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.05); 
+            background-color: white;
+            color: #4589FF;
+            border-top-left-radius: 0;
+            .whiteLine {
+                background-color: #4589FF;
+            }
+        }
+        .leftSide{
+            @include displayFlex($g: 12px);
+            flex-direction: column;
+            .imgBox{
+                @include displayFlex();
+                img{
+                    width: 80px;
+                    height: 80px;
+                    object-fit: cover;
+                    border: 6px solid white;
+                    border-radius: 50%;
+                }
+                .taskAmount{
+                    font-size: 58px;
+                    font-weight: bolder;
+                    margin-left: 16px;
+                }
+            }
+            .taskUrgend{
+                font-size: 28px;
+                font-weight: 200;
+            }
+        }
+        .whiteLine{
+            width: 4px;
+            height: 140px;
+            background-color: white;
+            border-radius: 4px;
+        }
+        .rightSide{
+            @include displayFlex($g: 24px);
+            flex-direction: column;
+            .date{
+                font-size: 42px;
+                font-weight: bold;
+            }
+            .UpcomingDeadline{
+                font-size: 28px;
+                font-weight: 200;
+            }
+        }
+    }
+}
+
+.showTasksInBoard{
+    height: 191px;
+    width: 208px;
+    border: 1px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 30px;
+    @include displayFlex($g: 22px);
+    flex-direction: column;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    color: #4589FF;
+    &:hover{
+        transform: scale(1.1);
+        border-top-left-radius: 0;
+        background-color: #2756ff;
+        color: white;
+    }
+    .amountTasks{
+        @include displayFlex($g: 12px);
+        img{
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border: 6px solid white;
+            border-radius: 50%;
+        }
+        .amountTasksNr{
+            font-size: 42px;
+            font-weight: bold;
+        }
+    }
+    .TaskBoard{
+        font-size: 28px;
+        font-weight: 200;
+    }
+}
+
+.taskRow2{
+    width: 100%;
+    @include displayFlex($j: space-between);
+    .smallBoX{
+        width: 204px;
+        height: 219px;
+        border: 1px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 30px;
+        @include displayFlex($g: 22px);
+        flex-direction: column;
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+        color: #4589FF;
+        &:hover{
+            transform: scale(1.1); 
+            border-top-left-radius: 0;
+            background-color: #2756ff;
+            color: white;
+        }
+    }
+    .amountTasks2{
+        @include displayFlex($g: 12px);
+        img{
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border: 6px solid white;
+            border-radius: 50%;
+        }
+        .amountTasksNr2{
+            font-size: 42px;
+            font-weight: bold;
+        }
+    }
+    .positionTaskBoard2{
+        @include displayFlex($a: flex-start,$g: 16px);
+        flex-direction: column;
+        .TaskBoard2{
+            font-size: 28px;
+            font-weight: 200;
+        }
+    }
+}
+
+@media (max-width: 1380px) {
+    section{
+        width: 100vw;
+        height: calc(100dvh - 196px);
+        position: absolute;
+        bottom: 100px;
+        @include displayFlex();
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 1000px) {
+    section{
+        width: 100vw;
+        height: calc(100dvh - 196px);
+        @include displayFlex();
+        .contantBox{
+            width: 912px;
+            height: 526px;
+        }
+    }
+
+    .taskRow1{
+        @include displayFlex($j: space-evenly, $g: 32px);
+        .blueTask{
+            width: 564px;
+            height: 160px;
+            &:hover{
+                transform: scale(1.05); 
+            }
+            .leftSide{
+                .imgBox{
+                    img{
+                        width: 68px;
+                        height: 68px;
+                        border: 4px solid white;
+                    }
+                    .taskAmount{
+                        font-size: 40px;
+                        font-weight: bold;
+                    }
+                }
+                .taskUrgend{
+                    font-size: 24px;
+                }
+            }
+            .whiteLine{
+                width: 2px;
+            }
+            .rightSide{
+                @include displayFlex($g: 16px);
+                .date{
+                    font-size: 32px;
+                    font-weight: bold;
+                }
+                .UpcomingDeadline{
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+
+    .showTasksInBoard{
+        height: 160px;
+        width: 188px;
+        @include displayFlex($g: 16px);
+        &:hover{
+            transform: scale(1.05);
+        }
+        .amountTasks{
+            @include displayFlex($g: 12px);
+            img{
+                border: 4px solid white;
+            }
+            .amountTasksNr{
+                font-size: 40px;
+                font-weight: bold;
+            }
+        }
+        .TaskBoard{
+            text-align: center;
+            font-size: 24px;
+        }
+    }
+
+    .taskRow2{
+        width: 100%;
+        @include displayFlex($j: space-evenly);
+        .smallBoX{
+            width: 176px;
+            height: 184px;
+        }
+        .amountTasks2{
+            @include displayFlex($g: 12px);
+            img{
+                border: 4px solid white;
+            }
+            .amountTasksNr2{
+                font-size: 40px;
+            }
+        }
+        .positionTaskBoard2{
+            @include displayFlex($a: flex-start,$g: 12px);
+            flex-direction: column;
+            .TaskBoard2{
+                font-size: 22px;
+                font-weight: 200;
+            }
+        }
+    }
+}
+
+@media (max-width: 850px) {
+
+    section{
+        .contantBox{
+            height: auto;
+            display: flex;
+            gap: 12px;
+        }
+    }
+
+    .positionGreed{
+        display: none;
+    }
+
+    .taskRow1{
+        @include displayFlex( $g: 16px);
+        flex-direction: column;
+        .blueTask{    
+            width: 480px;
+            height: 152px;
+            .leftSide{
+                @include displayFlex($g: 12px);
+                flex-direction: column;
+                .imgBox{
+                    @include displayFlex();
+                    img{
+                        width: 64px;
+                        height: 64px;
+                        border: 3px solid white;
+                    }
+                    .taskAmount{
+                        font-size: 44px;
+                        font-weight: bold;
+                        margin-left: 12px;
+                    }
+                }
+                .taskUrgend{
+                    font-size: 22px;
+                }
+            }
+            .whiteLine{
+                width: 2px;
+                height: 104px;
+            }
+            .rightSide{
+                @include displayFlex();
+                flex-direction: column;
+                .date{
+                    font-size: 28px;
+                }
+                .UpcomingDeadline{
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+
+    .showTasksInBoard{
+        width: 480px;
+        height: 152px;
+        @include displayFlex($g: 12px);
+        .amountTasks{
+            @include displayFlex($g: 12px);
+            img{
+                width: 64px;
+                height: 64px;
+                border: 3px solid white;
+            }
+            .amountTasksNr{
+                font-size: 42px;
+            }
+        }
+        .TaskBoard{
+            font-size: 22px;
+        }
+    }
+
+    .taskRow2{
+        width: 480px;
+        @include displayFlex($j: space-between, $g: 12px);
+        flex-wrap: wrap;
+        .smallBoX{
+            width: 220px;
+            height: 160px;
+            @include displayFlex($g: 8px);
+        }
+        .amountTasks2{
+            @include displayFlex($g: 12px);
+            img{
+                width: 62px;
+                height: 62px;
+                border: 3px solid white;
+            }
+            .amountTasksNr2{
+                font-size: 42px;
+                font-weight: bold;
+            }
+        }
+        .positionTaskBoard2{
+            @include displayFlex($a: flex-start,$g: 4px);
+            .TaskBoard2{
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .taskRow1{
+        @include displayFlex( $g: 16px);
+        flex-direction: column;
+        .blueTask{    
+            width: 300px;
+            height: 112px;        
+            .leftSide{
+                @include displayFlex($g: 8px);
+                .imgBox{
+                    @include displayFlex();
+                    img{
+                        width: 44px;
+                        height: 44px;
+                        border: 2px solid white;
+                    }
+                    .taskAmount{
+                        font-size: 32px;
+                        margin-left: 8px;
+                    }
+                }
+                .taskUrgend{
+                    font-size: 16px;
+                }
+            }
+            .whiteLine{
+                width: 2px;
+                height: 84px;
+            }
+            .rightSide{
+                @include displayFlex();
+                flex-direction: column;
+                .date{
+                    font-size: 21px;
+                    margin-bottom: 4px;
+                }
+                .UpcomingDeadline{
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    .showTasksInBoard{
+        width: 300px;
+        height: 112px; 
+        @include displayFlex($g: 8px);
+        .amountTasks{
+            @include displayFlex($g: 12px);
+            img{
+                width: 54px;
+                height: 54px;
+                border: 2px solid white;
+            }
+            .amountTasksNr{
+                font-size: 32px;
+            }
+        }
+        .TaskBoard{
+            font-size: 18px;
+        }
+    }
+
+    .taskRow2{
+        width: 300px;
+        @include displayFlex($j: space-between, $g: 8px);
+        flex-wrap: wrap;
+        .smallBoX{
+            width: 142px;
+            height: 96px;
+            @include displayFlex($g: 0);
+        }
+        .amountTasks2{
+            img{
+                width: 48px;
+                height: 48px;
+                border: 2px solid white;
+            }
+            .amountTasksNr2{
+                font-size: 32px;
+                font-weight: bold;
+            }
+        }
+        .positionTaskBoard2{
+            @include displayFlex($a: flex-start,$g: 4px);
+            .TaskBoard2{
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media (max-width: 440px) {
+    .showTasksInBoard{
+        width: 300px;
+        height: 88px; 
+        @include displayFlex($g: 0);
+    }
+
+    .taskRow1{
+        @include displayFlex( $g: 16px);
+        flex-direction: column;
+        .blueTask{    
+            height: 102px;        
+        }
+    }
+
+}

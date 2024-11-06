@@ -1,0 +1,575 @@
+@import "../../../styles.scss";
+
+section{
+    width: calc(100vw - 222px);
+    height: calc(100dvh - 96px);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.taskBox{
+    width: calc(50% - 32px);
+    height: 100%;
+    padding: 16px;
+    padding-right: 8px;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 0px 0px 0px, rgba(0, 0, 0, 0.2) 2px 0px 5px 0px;
+    z-index: 9;
+    @include displayFlex($j: space-evenly, $a: flex-start);
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.titleInput{
+    font-weight: 400;
+    font-size: 32px;
+    padding-bottom: 12px;
+    margin-bottom: 0px;
+    min-height: 56px;
+}
+
+.decriptionBox{
+    width: 100%;
+    textarea{
+        height: 93px;
+        border: 1px solid;
+        border-color: rgba(209, 209, 209, 1);
+        border-radius: 0px 10px 10px 10px;
+        padding: 18px;
+        font-size: 19px;
+        color: black;
+        resize: none;
+        width: calc(100% - 36px);
+        outline: none;
+        font-size: 19px;
+        width: 100%;
+    }
+}
+
+.dateBox{
+    width: 100%;
+    input{
+        width: 100%;
+        cursor: pointer;
+    }
+}
+
+.prioBox{
+    width: 100%;
+    .prioBoxHeader{
+        @include displayFlex($j: flex-start, $g: 4px); 
+        span{
+            margin-bottom: 14px;
+        }
+    }
+    .prioBoxBtns{
+        margin-top: 12px;
+        margin-bottom: 12px;
+        @include displayFlex($j: space-around);
+        button{
+            @include displayFlex($g: 12px);
+            width: 136px;
+            height: 51px;
+            font-size: 19px;
+            font-weight: 400;
+            cursor: pointer;
+            border: 0px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+            img{
+                width: 20px;
+                height: 20px;
+                object-fit: contain;
+            }
+        }
+        .greenBtn:hover {
+            box-shadow: 0px 3px rgb(154, 233, 93), 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+        }
+        
+        .orangeBtn:hover {
+            box-shadow: 0 3px rgb(255, 168, 0), 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+        }
+        
+        .redBtn:hover {
+            box-shadow: 0 3px rgb(255, 66, 6), 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+        }
+    }
+}
+
+.btn-active {
+    cursor: unset;
+    color: var(--white);
+    img {
+      filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%)
+        hue-rotate(346deg) brightness(99%) contrast(103%);
+    }
+}
+
+.assignetToBox{
+    width: 100%;
+    .userWindow{
+        width: calc(100% - 22px);
+        @include displayFlex($j: flex-start, $a: flex-start); 
+        flex-direction: column;
+        padding-left: 10px;
+        margin: 6px;
+        overflow-y: scroll;
+        .checkedUsers{
+            min-height: 72px;
+            width: calc(100% - 16px);
+            overflow-x: scroll;
+            display: flex;
+            margin-left: 8px;
+            margin-right: 8px;
+            .userRing{
+                min-width: 40px;
+                height: 40px;
+                background-color: white;
+                border-radius: 50%;
+                box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+                @include displayFlex(); 
+                margin: 8px;
+                .userTag{
+                    width: 32px;
+                    height: 32px;
+                    background-color: springgreen;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    @include displayFlex(); 
+                    color: white;
+                    font-weight: 500;
+                }
+            }
+        }
+        .loadedUsers{
+            width: calc(100% - 16px);
+            @include displayFlex($j: flex-start, $g: 12px); 
+            border-radius: 5px;
+            padding: 2px;
+            padding-left: 8px;
+            padding-right: 8px;
+            cursor: pointer;
+            &:hover{
+                background-color: #64718821;
+            }
+            .ringFromUser{
+                min-width: 40px;
+                min-height: 40px;
+                background-color: white;
+                border-radius: 50%;
+                box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+                @include displayFlex(); 
+                margin: 4px;
+                .tagFromUser{
+                    min-width: 32px;
+                    min-height: 32px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    @include displayFlex(); 
+                    color: white;
+                    font-weight: 500;
+                }
+            }
+            .userNameAndChackbox{
+                width: 100%;
+                @include displayFlex($j: space-between); 
+                input{
+                    margin: 0;
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 5px;
+                    cursor: pointer;
+                }
+            }
+            
+        }
+    }
+}
+
+.categoryBox{
+    width: 100%;
+    .taskBoxSection{
+        .taskWindow{
+            @include displayFlex($a: flex-start, $g: 12px); 
+            flex-direction: column;
+            width: calc(100% - 16px);
+            padding-left: 16px;
+            margin-bottom: 6px;
+            margin-top: 6px;
+            span{
+                cursor: pointer;
+                font-size: large;
+                transition: 0.2s ease-in-out;
+                &:hover{
+                    color: #4589ff;
+                }
+            }
+        }
+    }
+}
+
+.subtaskBox{
+    width: 100%;
+    .headLetters{
+        @include displayFlex($j: flex-start, $g: 4px); 
+        span{
+            margin-bottom: 14px;
+        }
+        p{
+            color: red;
+            margin-left: 16px;
+            margin-right: 16px;
+        }
+    }
+    .email{
+        display: flex;
+        input{
+            width: 100%;
+            margin-bottom: 0;
+            padding-right: 26px;
+        }
+        img{
+            margin-left: -26px;
+            cursor: pointer;
+            &:hover{
+                scale: 1.1;
+            }
+        }
+    }
+    .taskList{
+        width: calc(100% - 24px);
+        margin: 12px;
+        @include displayFlex($j: space-between);
+        padding: 2px;
+        padding-left: 4px;
+        padding-right: 4px;
+        &:hover{
+            background-color: #64718821;
+            border-radius: 5px;
+        } 
+        img{
+            cursor: pointer;
+            &:hover{
+                scale: 1.1;
+            }
+        }
+    }
+}
+
+
+.positionBtn{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 24px;
+    .ClearBtn {
+        width: 120px;
+        height: 61px;
+        border-radius: 10px;
+        border: 1px solid #647188;
+        color: #647188;
+        background-color: white;
+        font-size: 22px;
+        margin-right: 8px;
+        cursor: pointer;
+    }
+    .ClearBtn:hover {
+        border: 2px solid #4589ff;
+        color: #4589ff;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    .ClearBtn:hover .clearBtnImg{
+        filter: invert(47%) sepia(53%) saturate(6716%) hue-rotate(208deg) brightness(101%) contrast(101%);
+    }
+    .createTaskBtn {
+        width: 174px;
+        height: 61px;
+        border-radius: 10px;
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+        background-color: #4589ff;
+        border: 1px solid #4589ff;
+        animation: 0.3s acriveBtn;
+        
+    }
+    .createTaskBtn:hover {
+        background-color: #176cff;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+}
+
+@keyframes acriveBtn {
+    from {
+        background-color: #a3a5a7;
+    }
+    to {
+        background-color: #4589ff;
+        border: 1px solid #4589ff;
+    }
+}
+
+.namePosition{
+    @include displayFlex($j: flex-start, $g: 4px); 
+}
+
+.assignedSelect{
+    @include displayFlex($j: space-between); 
+    padding-left: 16px;
+    border: 0;
+    margin-top: 16px;
+    font-size: 19px;
+    appearance: none;
+    border-bottom: 1px solid rgba(209, 209, 209, 1);
+    line-height: 39px;
+    cursor: pointer;
+}
+
+.headLetters{
+    @include displayFlex($j: space-between); 
+    width: 100%;
+    .headLine{
+        @include displayFlex($j: flex-start, $g: 4px); 
+        span{
+            margin-bottom: 14px;
+        }
+    }
+}
+
+input{
+    width: calc(100% - 4px);
+    height: 32px;
+    border: none;
+    border-bottom: 2px solid rgba(209, 209, 209, 1);
+    border-radius: 0;
+    outline: none;
+    font-size: large;
+    margin-bottom: 32px;
+}
+
+.disabledBtn{
+    width: 174px;
+    height: 61px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 22px;
+    background-color: #a3a5a7;
+}
+
+
+//----------------------------- animation tasks---------------------------------------------
+.slideInUpTask {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    animation: slideInUp 0.2s forwards;
+}
+  
+.slideOutDownTask {
+    max-height: 56px;
+    opacity: 1;
+    overflow: hidden;
+    animation: slideOutDown 0.2s forwards;
+}
+  
+@keyframes slideInUp {
+    from {
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        max-height: 56px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+  
+@keyframes slideOutDown {
+    from {
+        max-height: 56px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+//--------------------------------animation user-------------------------------------
+.slideInUpUser {
+    max-height: 0;
+    opacity: 0;
+    animation: slideInUpUser 0.2s forwards;
+}
+  
+.slideOutDownUser {
+    max-height: 180px;
+    opacity: 1;
+    animation: slideOutDownUser 0.2s forwards;
+}
+  
+@keyframes slideInUpUser {
+    from {
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        max-height: 180px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+  
+@keyframes slideOutDownUser {
+    from {
+        max-height: 180px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+
+@media (max-width: 1380px) {
+    section{
+        width: 100vw;
+        height: calc(100dvh - 196px);
+        position: absolute;
+        bottom: 100px;
+        @include displayFlex(); 
+    }
+
+    .taskBox{
+        box-shadow: -5px 0 5px -5px #33333345, 5px 0 5px -5px #33333345;
+    }
+
+    .positionBtn{
+        position: relative;
+        width: calc(100% - 52px);
+        @include displayFlex(); 
+        margin-top: 44px;
+        margin-bottom: 44px;
+        .ClearBtn {
+            width: 120px;
+            height: 40px;
+        }
+        .createTaskBtn {
+            width: 160px;
+            height: 41px;   
+        }
+    }
+
+    .disabledBtn{
+        width: 160px;
+        height: 41px;
+    }
+}
+
+@media (max-width: 1000px) {
+    section{
+        height: calc(100dvh - 168px);
+        bottom: 72px;
+    }
+    .taskBox{
+        width: 100%;
+    }
+    .positionBtn{
+        @include displayFlex($j: space-evenly);
+    }
+}
+
+@media (max-width: 780px) {
+    .assignetToBox{
+        .userWindow{
+            width: calc(100% - 9px);
+            margin: 0;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .prioBox{
+        .prioBoxHeader{
+            h2{
+                margin-bottom: 0;
+            }
+            span{
+                margin-bottom: 0;
+            }
+        }
+        .prioBoxBtns{
+            button{
+                @include displayFlex($g: 8px);
+                width: 96px;
+                height: 40px;
+                font-size: 14px;
+                img{
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+        }
+    }
+
+    .headLetters{
+        .headLine{
+            @include displayFlex($j: flex-start, $g: 4px); 
+            h2{
+                margin-bottom: 0;
+            }
+            span{
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .assignedSelect{
+        margin-top: 4px;
+    }
+
+    .positionBtn{
+        @include displayFlex($j: space-evenly);
+        width: 100%;
+        margin: 0;
+        margin-top: 32px;
+        margin-bottom: 12px;
+        .ClearBtn {
+            font-size: 20px;
+        }
+        .createTaskBtn {
+            font-size: 20px;
+        }
+    }
+
+    .disabledBtn{
+        font-size: 20px;
+    }
+
+    .subtaskBox{
+        .headLetters{
+            span{
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .headLetters{
+        h2{
+            margin-bottom: 0;
+        }
+        span{
+            margin-bottom: 0;
+        }
+    }
+
+}

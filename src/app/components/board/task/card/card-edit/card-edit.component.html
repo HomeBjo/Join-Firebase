@@ -1,0 +1,138 @@
+@if(taskService.clickedTaskCopy){
+    <section>
+        <div class="positionCloseX">
+            <img src="assets/img/close.svg" alt="" (click)="closeWindow()">
+        </div>
+        <div class="taskBox">
+        <!-------------title----------------->
+            <input type="text" name="" id="" class="titleInput" placeholder="Enter a title (required)" [(ngModel)]="taskService.clickedTaskCopy[0].title">
+        <!-------------descrptipon----------------->
+            <div class="decriptionBox">
+                <div class="namePosition">
+                    <h2>Decription</h2>
+                    <p>(required)</p>
+                </div>
+                <textarea name="" id="" [(ngModel)]="taskService.clickedTaskCopy[0].description"></textarea>
+            </div>
+        <!-------------date----------------->
+            <div class="dateBox">
+                <div class="namePosition">
+                    <h2>Due date</h2>
+                    <p>(required)</p>
+                </div>
+                <input type="date" id="date" [(ngModel)]="taskService.clickedTaskCopy[0].date" (click)="checkDateAddTask()">
+            </div>
+        <!-------------prio Btn----------------->
+            <div class="prioBox">
+                <div class="prioBoxHeader">
+                    <h2>Priority</h2><span>(optional)</span>
+                </div>
+                <div class="prioBoxBtns">
+                    <button class="greenBtn" (click)="checkPrio('low')"
+                        [ngClass]="{'btn-active': priority == 'low'}" 
+                        [ngStyle]="{'background-color': priority == 'low' ? 'rgb(154, 233, 93)' : 'white'}"
+                    >Low<img src="assets/img/prio_baja.svg" alt=""></button>
+    
+                    <button class="orangeBtn" (click)="checkPrio('medium')"
+                        [ngClass]="{'btn-active': priority == 'medium'}" 
+                        [ngStyle]="{'background-color': priority == 'medium' ? 'rgb(255, 168, 0)' : 'white'}"
+                    >Medium<img src="assets/img/prio_media.svg" alt=""></button>
+                    
+                    <button class="redBtn" (click)="checkPrio('high')" 
+                        [ngClass]="{'btn-active': priority == 'high'}" 
+                        [ngStyle]="{'background-color': priority == 'high' ? 'rgb(255, 66, 6)' : 'white'}"
+                    >High<img src="assets/img/prio_alta.svg" alt=""></button>
+                </div>
+            </div>
+        <!-------------users----------------->
+            <div class="assignetToBox">
+                <div class="headLetters">
+                    <div class="headLine">
+                        <h2>Assignet to</h2><span>(optional)</span>
+                    </div>
+                </div>
+                <div class="assignedSelect" (click)="openAssignedTo($event)">
+                    <span>Select contacts to assign</span>
+                    <img src="assets/img/arrow_drop_down.svg" alt="">
+                </div>
+                @if (chackAssigedToContacts()) {
+                    <div class="checkedUsers">
+                        @for (user of getChackedUserArray(); track $index) {
+                            <div class="userRing">
+                                <span class="userTag" *ngIf="user.color!" [style.backgroundColor]="user.color!">
+                                    {{getUserFirstLetter(user)}}{{getUserSecondLetter(user)}}</span>
+                            </div>
+                        }
+                    </div>
+                }
+                <div class="userWindow" [ngClass]="{'dNone': showUserWindow === null, 'slideInUpUser': showUserWindow , 'slideOutDownUser': !showUserWindow,}">
+                    @for(user of getContactsFromCurrenUser(); track $index){
+                        <div class="loadedUsers" (click)="addUser(user, $event)">
+                            <div class="ringFromUser">
+                                <span class="tagFromUser"  *ngIf="user.color!" [style.backgroundColor]="user.color!">
+                                    {{getUserFirstLetter(user)}}{{getUserSecondLetter(user)}}</span>
+                            </div>
+                            <div class="userNameAndChackbox">
+                                <label for="{{user.id}}"> {{user.firstName}} {{user.lastName}}</label>
+                                <input type="checkbox" name="cheese" id="{{user.id}}" (click)="addUser(user, $event)" [checked]="isChecked(user)"/>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        <!-------------chategory----------------->
+            <div class="categoryBox">
+                <div class="headLetters">
+                    <h2>Category</h2>
+                </div>
+                <div class="taskBoxSection">
+                    <div class="assignedSelect" (click)="openCategory($event)">
+                        <span>{{ taskService.clickedTaskCopy[0].categoryTask }}</span>
+                        <img src="assets/img/arrow_drop_down.svg" alt="">
+                    </div>
+                    <div class="taskWindow" #taskWindoW 
+                        [ngClass]="{'dNone': showCategoryWindow === null, 'slideInUpTask': showCategoryWindow , 'slideOutDownTask': !showCategoryWindow,}"
+                    >
+                        <span (click)="changeTask('Technical Task', $event)">Technical Task</span>
+                        <span (click)="changeTask('User Story', $event)">User Story</span>
+                    </div>
+                </div>
+            </div>
+        <!-------------subtask----------------->
+            <div class="subtaskBox">
+                <div class="headLetters">
+                    <h2>Subtask</h2><span>(optional)</span>
+                    @if(!checkSubtaskLength()){
+                        <p>Your subtask is to long. Use description field.</p>
+                    }
+                </div>
+                <div class="email">
+                    <input type="email" placeholder="Add nea subtask" [(ngModel)]="subtask" (keypress)="addSubtaskByEnter($event)"/>
+                    <img src="assets/img/subtask_icons.svg" alt="" (click)="addSubtask()">
+                </div>
+                @if(checkSubtaskLength()){
+                    @for(task of getSubtaskArrayData(); track $index){
+                        <div class="taskList">
+                            <span>{{task.subtask}}</span>
+                            <img src="assets/img/delete.svg" alt="" (click)="deleteSubtask(task)">
+                        </div>
+                    }
+                }
+            </div>
+        <!-------------create btn----------------->
+            <div class="buttonBox">
+                <div class="buttonBoxposition">
+                    <button class="createTaskBtn" (click)="closeWindow()">
+                        Close
+                    </button>
+                    <img src="assets/img/vector3.svg" alt="">
+                    <button [disabled]="!checkIfVluesChanged()" (click)="saveEditTask($event)"
+                        [ngClass]="{'createTaskBtn': checkIfVluesChanged(), 'disabledBtn': !checkIfVluesChanged()}">
+                        <img src="assets/img/edit.svg" alt="" [ngClass]="{'': checkIfVluesChanged(), 'disabledBtnImg': !checkIfVluesChanged()}">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+}

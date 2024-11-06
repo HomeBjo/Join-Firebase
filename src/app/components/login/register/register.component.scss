@@ -1,0 +1,195 @@
+@import "../../../../styles.scss";
+
+.logo{
+    position: absolute;
+    top: 72px;
+    left: 72px;
+    width: 100px;
+    height: 121px;
+    object-fit: contain;
+}
+
+section{
+    width: 100vw;
+    height: 100vh;
+    background-color: #4589FF;
+    @include displayFlex();
+    .positionHeadline{
+        @include displayFlex();
+        flex-direction: column;
+        h1{
+            font-size: 48px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 120%;
+            margin-bottom: 12px;
+            color: black
+            
+        }
+    }
+    .whiteBox{
+        @include displayFlex($g: 32px);
+        flex-direction: column;
+        min-width: calc(40vw - 64px);
+        height: auto;
+        position: relative;
+        border-radius: 25px;
+        padding: 32px;
+        background-color: white;
+    }
+}
+
+.warningSpan{
+    color: red;
+    margin-top: -34px;
+    margin-bottom: 24px;
+}
+
+.arrowLeft{
+    position: absolute;
+    left: 24px;
+    top: 36px;
+    width: 45px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+    &:hover{
+        background-color: #81afff91;
+    }
+}
+
+.inputDiv{
+    @include displayFlex();
+    flex-direction: column;
+    min-width: 40vw;
+    .email{
+        @include displayFlex();
+        width: 100%;
+        input{
+            width: calc(60% - 32px);
+            height: 32px;
+            border: none;
+            border-bottom: 2px solid rgba(209, 209, 209, 1);
+            border-radius: 0;
+            outline: none;
+            font-size: large;
+            padding-right: 32px;
+            margin-bottom: 32px;
+        }
+        img{
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            margin-bottom: 32px;
+            margin-left: -28px;
+        }
+    }
+    .password{
+        @include displayFlex();
+        width: 100%;
+        input{
+            width: calc(60% - 32px);
+            height: 32px;
+            border: none;
+            border-bottom: 2px solid rgba(209, 209, 209, 1);
+            border-radius: 0;
+            box-shadow: none !important;
+            outline: none;
+            font-size: large;
+            padding-right: 32px;
+            margin-bottom: 32px;
+        }
+        img{
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            margin-bottom: 32px;
+            margin-left: -28px;
+        }
+    }
+}
+
+.positionRememberUser{
+    @include displayFlex($j:flex-start, $g: 16px);
+    width: 60%;
+    margin-top: -40px;
+    img{
+        width: 18px;
+        height: 18px;
+        object-fit: cover;
+        cursor: pointer;
+    }
+    p{
+        margin-bottom: 0;
+    }
+}
+
+a{
+    color: #4589FF;
+}
+
+.disabledBtn{
+    min-width: 96px;
+    padding: 16px;
+    font-size: large;
+    border-radius: 10px;
+    border: none;
+    color: rgb(85, 85, 85);
+    background-color: #a3a5a7;
+    transition: 0.3s ease-in-out;
+}
+
+.buttonDiv{
+    @include displayFlex($g: 40px);
+    min-width: 40vw;
+}
+
+.registerBtn{
+    cursor: pointer;
+    min-width: 96px;
+    background-color: $blueButton;
+    padding: 16px;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: large;
+    transition: 0.3s ease-in-out;
+    &:hover{
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    }
+}
+
+@media (max-width: 800px) {
+    .inputDiv{
+        .email{
+            input{
+                width: calc(80% - 32px);
+            }
+        }
+        .password{
+            input{
+                width: calc(80% - 32px);
+            }
+        }
+    }
+
+    .positionRememberUser{
+        width: 80%;
+    }
+
+    // section{
+    //     .whiteBox{
+            // .buttonDiv{
+                button{
+                    min-width: 96px;
+                    padding: 8px;
+                    font-size: medium;
+                }
+            // }
+    //     }
+    // }
+
+    .logo{
+        display: none;
+    }
+}

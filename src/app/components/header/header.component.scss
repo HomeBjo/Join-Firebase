@@ -1,0 +1,96 @@
+@import "../../../styles.scss";
+
+section{
+    width: auto;
+    height: 96px;
+    @include displayFlex($j: space-between);
+    z-index: 20;
+    .logo{
+        margin-left: 24px;
+        height: 80px;
+        object-fit: contain;
+    }
+    .positionInitial{
+        @include displayFlex();
+        position: relative;
+        .logout{
+            cursor: pointer;
+            &:hover{
+                background-color: aliceblue;
+            }
+        }
+        .initialBox{
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border: 2px solid rgba(69, 137, 255, 1);
+            border-radius: 50px;
+            @include displayFlex();
+            margin-right: 16px;
+            cursor: pointer;
+            .letters{
+                @include displayFlex();
+                font-size: large;
+                width: 48px;
+                height: 48px;
+                border: 3px solid #4589FF;
+                border-radius: 50%;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.transparentBackground{
+    width: 200px;
+    height: 172px;
+    position: absolute;
+    right: 0;
+    top: 28px;
+    @include displayFlex($j: flex-end, $a: flex-end);
+    z-index: 14;
+    padding-bottom: 4px;
+    padding-right: 6px;
+    .whiteBox{
+        width: 190px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-top-left-radius: 20px;
+        text-align: end;
+        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.20);
+        background-color: white;
+        z-index: 14;
+        @include displayFlex($a: flex-end, $g: 12px);
+        flex-direction: column;
+        p{
+            width: 100% !important;
+            margin-bottom: 0;
+            font-size: 19px;
+            font-weight: 400;
+            color: rgba(66, 82, 110, 1);
+            text-decoration: none;
+            padding: 4px 20px;
+            width: auto;
+            border-radius: 8px;
+            cursor: pointer;
+            &:hover {
+                background-color: rgba(200, 222, 255, 0.315);
+            }
+        }
+    }
+}
+
+.transparentBackground.dNone {
+    display: none;
+}
+
+@media (max-width: 780px) {
+    section{
+        .logo{
+            height: 56px;
+        }
+    }
+}

@@ -1,0 +1,78 @@
+<section>
+    <div class="contantBox">
+        <div class="positionGreed">
+            <h1 class="greed">{{getTime()}}</h1>&nbsp;<h1 class="userNmae"> &nbsp;{{getUserName()}}</h1>
+        </div>
+
+        <div class="taskRow1">
+            <div class="blueTask" (click)="routeToBoard()">
+                <div class="leftSide">
+                   <div class="imgBox">
+                        <img src="assets/img/clock.svg" alt="">
+                        <span class="taskAmount">{{getUrbanTasksNumber()}}</span>
+                   </div>
+                   <span class="taskUrgend">Tasks Urgent</span>
+                </div>
+                <div class="whiteLine"></div>
+                <div class="rightSide">
+                    <h1 class="date">{{getDate()}}</h1>
+                    <span class="UpcomingDeadline">Upcoming Deadline</span>
+                </div>
+            </div>
+            <div class="showTasksInBoard" (click)="routeToBoard()">
+                <div class="amountTasks">
+                    <img src="assets/img/board.svg" alt="">
+                    <span class="amountTasksNr">{{showTaskOnBoard()}}</span>
+                </div>
+                <span class="TaskBoard">Task on Board</span>
+            </div>
+        </div>
+
+        <div  class="taskRow2">
+            <div class="smallBoX" (click)="routeToBoard()">
+                <div class="amountTasks2">
+                    <img src="assets/img/urgent.svg" alt="">
+                    <span class="amountTasksNr2">{{amountTaskToDo()}}</span>
+                </div>
+                <div class="positionTaskBoard2">
+                    <span class="TaskBoard2">Tasks</span>
+                    <span class="TaskBoard2">To-do</span>
+                </div>
+            </div>
+
+            <div class="smallBoX" (click)="routeToBoard()">
+                <div class="amountTasks2">
+                    <img src="assets/img/inProgress.svg" alt="">
+                    <span class="amountTasksNr2">{{amountTaskProgress()}}</span>
+                </div>
+                <div class="positionTaskBoard2">
+                    <span class="TaskBoard2">Task in</span>
+                    <span class="TaskBoard2">Progress</span>
+                </div>
+            </div>
+
+            <div class="smallBoX" (click)="routeToBoard()">
+                <div class="amountTasks2">
+                    <img src="assets/img/awaitingFeedback.svg" alt="">
+                    <span class="amountTasksNr2">{{amountTaskFeedback()}}</span>
+                </div>
+                <div class="positionTaskBoard2">
+                    <span class="TaskBoard2">Awaiting</span>
+                    <span class="TaskBoard2">Feedback</span>
+                </div>
+            </div>
+
+            <div class="smallBoX" (click)="routeToBoard()">
+                <div class="amountTasks2">
+                    <img src="assets/img/done.svg" alt="">
+                    <span class="amountTasksNr2">{{amountTaskDone()}}</span>
+                </div>
+                <div class="positionTaskBoard2">
+                    <span class="TaskBoard2">Tasks</span>
+                    <span class="TaskBoard2">Done</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

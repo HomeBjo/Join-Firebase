@@ -1,0 +1,339 @@
+@import "../../../styles.scss";
+
+section{
+    width: 100vw;
+    height: 100vh;
+    @include displayFlex();
+    .positionAddMember{
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 40px;
+        span{
+            font-size: large;
+            margin-right: 16px;
+        }
+        button{
+            cursor: pointer;
+            background-color: $blueButton;
+            padding: 16px;
+            color: white;
+            border-radius: 10px;
+            border: none;
+            font-size: large;
+            transition: 0.3s ease-in-out;
+            &:hover{
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+            }
+        }
+    }
+}
+
+.positionWhiteBox{
+    @include displayFlex($g: 40px);
+    z-index: 1;
+    flex-direction: column;
+    min-width: 40vw;
+    height: auto;
+    border: 1px solid;
+    border-radius: 25px;
+    padding: 16px;
+    .positionHeadline{
+        @include displayFlex();
+        flex-direction: column;
+        h1{
+            font-size: 48px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 120%;
+            margin-bottom: 12px;
+            color: black
+            
+        }
+    }
+
+    .inputDiv{
+        @include displayFlex();
+        flex-direction: column;
+        min-width: 40vw;
+        .email{
+            @include displayFlex();
+            width: 100%;
+            input{
+                width: calc(60% - 32px);
+                height: 32px;
+                border: none;
+                border-bottom: 2px solid rgba(209, 209, 209, 1);
+                border-radius: 0;
+                outline: none;
+                font-size: large;
+                padding-right: 32px;
+                margin-bottom: 32px;
+            }
+            img{
+                width: 22px;
+                height: 22px;
+                object-fit: contain;
+                margin-bottom: 32px;
+                margin-left: -28px;
+            }
+        }
+        .password{
+            @include displayFlex();
+            width: 100%;
+            input{
+                width: calc(60% - 32px);
+                height: 32px;
+                border: none;
+                border-bottom: 2px solid rgba(209, 209, 209, 1);
+                border-radius: 0;
+                box-shadow: none !important;
+                outline: none;
+                font-size: large;
+                padding-right: 32px;
+                margin-bottom: 32px;
+            }
+            img{
+                width: 22px;
+                height: 22px;
+                object-fit: contain;
+                margin-bottom: 32px;
+                margin-left: -28px;
+            }
+        }
+    }
+
+    .positionRememberUser{
+        @include displayFlex($j:flex-start, $g: 16px);
+        width: 60%;
+        margin-top: -40px;
+        img{
+            width: 18px;
+            height: 18px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+    }
+    .buttonDiv{
+        @include displayFlex($g: 40px);
+        min-width: 40vw;
+        button{
+            cursor: pointer;
+            min-width: 120px;
+            background-color: $blueButton;
+            padding: 16px;
+            color: white;
+            border-radius: 10px;
+            border: none;
+            font-size: large;
+            transition: 0.3s ease-in-out;
+            &:hover{
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+            }
+        }
+        .guestBtn{
+            cursor: pointer;
+            background-color: white;
+            padding: 16px;
+            color: gray;
+            border-radius: 10px;
+            border: 2px solid gray;
+            font-size: large;
+            transition: 0.3s ease-in-out;
+            &:hover{
+                color: $blueButton;
+                border: 2px solid $blueButton;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+            }
+        }
+    }
+}
+
+.googleBtn{
+    @include displayFlex( $g: 16px);
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid gray;
+    color: gray;
+    font-size: large;
+    transition: 0.3s ease-in-out;
+    margin-bottom: -16px;
+    &:hover{
+        color: $blueButton;
+        border: 2px solid $blueButton;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    }
+    img{
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+    }
+}
+
+.logoHeader{
+    .logoStartAnimation{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9999;
+        background: rgb(69, 137, 255);
+        animation: bodyBackgroundAnimation 1.5s ease-in forwards;
+    }
+    .logo{
+        position: absolute;
+        background-color: aqua;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 265px;
+        height: 323px;
+        animation: logoAnimation 0.5s ease-in forwards 1s;
+        background: url('../../../assets/img/join-big.svg') no-repeat center top, url('../../../assets/img/join_logo.svg') no-repeat center top;
+        background-size: contain;
+        z-index: 9999;
+    }
+}
+
+@keyframes bodyBackgroundAnimation {
+    0% {
+      background: rgb(69, 137, 255);
+      z-index: 9999;
+    }
+    50% {
+      background: rgb(69, 137, 255);
+      z-index: 9999;
+    }
+    100% {
+      background: #ffffff;
+      z-index: 0;
+    }
+  }
+
+@keyframes logoAnimation {
+    0% {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 265px;
+        height: 323px;
+        background-position: 0 0, 0 0;
+        background-image: url('../../../assets/img/join-big.svg');
+    }
+    100% {
+        top: 132px;
+        left: 120px;
+        width: 100px;
+        height: 121px;
+        background-position: 0 0, 0 0;
+        background-image: url('../../../assets/img/join_logo.svg');
+    }
+}
+
+.privacyPolicy{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    @include displayFlex($g: 40px);
+    span{
+        margin: 16px;
+        cursor: pointer;
+        &:hover{
+            color: $blueButton;
+        }
+    }
+}
+
+.error{
+    color: #ed1e79;
+    text-align: center;
+    margin: 4px;
+    font-size: 14px;
+}
+
+@media (max-width: 800px) {
+    section{
+        .positionAddMember{
+            margin: 16px;
+            button{
+                padding: 12px;
+                font-size: medium;
+            }
+        }
+    }
+
+    .becomeMemberSpan{
+        display: none;
+    }
+
+    .logoHeader{
+        .logo{
+            width: 72px !important;
+            height: 104px !important;
+            animation: logoAnimationMobile 0.5s ease-in forwards 1s;
+            background: url('../../../assets/img/join-big.svg') no-repeat center top, url('../../../assets/img/join_logo.svg') no-repeat center top;
+            background-size: contain;
+        }
+    }
+
+    @keyframes logoAnimationMobile {
+        0% {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 265px;
+            height: 323px;
+            background-position: 0 0, 0 0;
+            background-image: url('../../../assets/img/join-big.svg');
+        }
+        100% {
+            top: 68px;
+            left: 56px;
+            width: 56px;
+            height: 102px;
+            background-position: 0 0, 0 0;
+            background-image: url('../../../assets/img/join_logo.svg');
+        }
+    }
+
+    .positionWhiteBox{
+        .inputDiv{
+            .email{
+                input{
+                    width: calc(88% - 32px);
+                }
+            }
+            .password{
+                input{
+                    width: calc(88% - 32px);
+                }
+            }
+        }
+    }
+
+    .googleBtn{
+        color: gray;
+        img{
+            width: 26px;
+            height: 26px;
+        }
+    }
+
+    .positionWhiteBox{
+        .buttonDiv{
+            @include displayFlex($g: 16px);
+            button{
+                min-width: 108px;
+                padding: 12px;
+            }
+            .guestBtn{
+                padding: 10px;
+            }
+        }
+    }
+}

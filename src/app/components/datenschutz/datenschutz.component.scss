@@ -1,0 +1,53 @@
+@import "../../../styles.scss";
+
+section{
+    width: calc(100vw - 222px);
+    height: calc(100vh - 96px);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    word-break: break-word !important;
+    .datenschutz{
+        width: calc(100% - 80px);
+        height: calc(100% - 80px);
+        margin: 40px;
+        overflow-y: auto;
+        overflow-x: hidden !important;
+        word-break: break-word !important;
+    }
+}
+
+h1, h2, h3, h4{
+    color: $blueButton;
+    font-weight: 500;
+}
+a{
+    word-break: break-word !important;
+}
+
+@media (max-width: 1380px) {
+    section{
+        width: 100%;
+        bottom: 0;
+        .datenschutz{
+            width: auto;
+            height: calc(100% - 102px);
+            margin: 0;
+            margin-left: 40px;
+            margin-right: 40px;
+            overflow-x: hidden !important;
+            word-break: break-word !important;
+        }
+    }
+}
+
+@media (max-width: 780px) {
+    section{
+        .datenschutz{
+            width: auto;
+            height: calc(100% - 74px);
+            overflow-x: hidden !important;
+            word-break: break-word !important;
+        }
+    }
+}

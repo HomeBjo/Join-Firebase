@@ -1,0 +1,42 @@
+<section routerLink="/mainPage" (click)="toggleBooleans()">
+    <div class="positionheader">
+        <app-header></app-header>
+    </div>
+    <div class="positionContent">
+        <div class="buttons">
+            <div class="buttonsPositionWidth">
+                <div class="buttonsPosition">
+                    <div routerLink="/summary" class="sidebarBtns"  [ngClass]="{'highlighted': clickCategory == 'summary'}"
+                        (click)="selectComponent('summary'); checkBooleansSummary()" >
+                        <img src="assets/img/menu_icons.svg" alt="">
+                        <span>Summary</span>
+                    </div>
+                    <div routerLink="/addTask" class="sidebarBtns" [ngClass]="{'highlighted': clickCategory == 'addTask'}"
+                        (click)="selectComponent('addTask'); checkBooleansAddTask()">
+                        <img src="assets/img/menu_icons2.svg" alt="">
+                        <span>Add Task</span>
+                    </div>
+                    <div routerLink="/board" class="sidebarBtns" [ngClass]="{'highlighted': clickCategory == 'board'}"
+                        (click)="selectComponent('board'); checkBooleansBoard()">
+                        <img src="assets/img/menu_icons1.svg" alt="">
+                        <span>Board</span>
+                    </div>
+                    <div routerLink="/contact" class="sidebarBtns" [ngClass]="{'highlighted': clickCategory == 'contact'}"
+                        (click)="selectComponent('contact'); checkBooleansContacts()">
+                        <img src="assets/img/menu_icons3.svg" alt="">
+                        <span>Contact</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="components">
+            <app-summary *ngIf="toggleService.selectedComponent === 'summary'"></app-summary>
+            <app-add-task *ngIf="toggleService.selectedComponent === 'addTask'"></app-add-task>
+            <app-board *ngIf="toggleService.selectedComponent === 'board'"></app-board>
+            <app-contacts *ngIf="toggleService.selectedComponent === 'contact'"></app-contacts>
+            <app-impressum *ngIf="toggleService.selectedComponent === 'impressum'"></app-impressum>
+            <app-datenschutz *ngIf="toggleService.selectedComponent === 'datenschutz'"></app-datenschutz>
+        </div>        
+    </div>
+</section>

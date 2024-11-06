@@ -1,0 +1,128 @@
+@import "../../styles.scss";
+
+section {
+    width: 100vw;
+    height: 100dvh;
+
+    .positionheader {
+        height: 96px;
+        background-color: #4589FF;
+        width: 100vw;
+    }
+
+    .positionContent {
+        display: flex;
+        .buttons {
+            height: calc(100dvh - 96px);
+            padding-top: 64px;
+            width: 222px;
+            @include displayFlex($j: flex-start, $g: 32px);
+            flex-direction: column;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 0px 0px 0px, rgba(0, 0, 0, 0.2) 2px 0px 5px 0px;
+            z-index: 10;
+            .buttonsPositionWidth{
+                @include displayFlex();
+                width: 176px;
+                .buttonsPosition{
+                    @include displayFlex($j: flex-start, $a: flex-start, $g:20px);
+                    flex-direction: column;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+.sidebarBtns{
+    @include displayFlex($j: flex-start, $g: 12px);
+    color: rgba(66, 82, 110, 1);
+    padding: 8px 30px;
+    width: 100%;
+    cursor: pointer;
+    &:hover {
+        scale: 1.1;
+        background-color: #D2E3FF;
+        border-radius: 10px;
+    }
+    span{
+        font-size: larger;
+    }
+}
+
+.highlighted {
+    background-color: #D2E3FF;
+    border-radius: 10px;
+    transform: scale(1.1);
+    width: 100%;
+}
+
+@media (max-width: 1380px) {
+    section {
+        .positionContent {
+            display: flex;
+            flex-direction: column-reverse;
+            width: 100vw;
+            background-color: white;
+            height: 100px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            .buttons {
+                @include displayFlex($j: flex-start, $g: 32px);
+                width: 100% !important;
+                padding: 0 !important;
+                height: 100%;
+                .buttonsPositionWidth{
+                    @include displayFlex($j: space-evenly);
+                    width: 100%;
+                    height: 100px;
+                    background-color: white;
+                    .buttonsPosition{
+                        @include displayFlex($j: space-evenly, $g: 32px);
+                        flex-direction: row;
+                        width: 80%;
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+    
+    .sidebarBtns{
+        @include displayFlex($g: 12px);
+        padding: 8px;
+        width: 40%;
+    }
+}
+
+@media (max-width: 780px) {
+    section {
+        .positionContent {
+            height: 72px;
+            .buttons {
+                .buttonsPositionWidth{
+                    .buttonsPosition{
+                        @include displayFlex($j: space-evenly, $g: 0);
+                        width: 92%;
+                    }
+                }
+            }
+        }
+    }
+
+    .sidebarBtns{
+        @include displayFlex($g: 8px);
+        padding: 4px;
+        flex-direction: column;
+        img{
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+        }
+        span{
+            font-size: small;
+        }
+    }
+
+}

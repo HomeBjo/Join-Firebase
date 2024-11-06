@@ -1,0 +1,39 @@
+@import "../../../../styles.scss";
+
+section{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    .impressum{
+        width: calc(100% - 80px);
+        height: calc(100% - 80px);
+        margin: 40px;
+        overflow-y: auto;
+        h1{
+            color: $blueButton;
+        }
+        strong{
+            color: $blueButton;
+        }
+        .positionHeadline{
+            width: 100%;
+            @include displayFlex($j: space-between);
+            h1{
+                color: $blueButton;
+            }
+            strong{
+                color: $blueButton;
+            }
+        }
+    }
+}
+
+img{
+    cursor: pointer;
+    margin-right: 4px;
+    &:hover{
+        scale: 1.1;
+    }
+}

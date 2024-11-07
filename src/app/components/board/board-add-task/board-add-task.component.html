@@ -37,17 +37,17 @@
                     <button class="greenBtn" (click)="checkPrio('low')"
                         [ngClass]="{'btn-active': priority == 'low'}" 
                         [ngStyle]="{'background-color': priority == 'low' ? 'rgb(154, 233, 93)' : 'white'}"
-                    >Low<img src="assets/img/prio_baja.svg" alt=""></button>
+                    ><span>Low</span><img src="assets/img/prio_baja.svg" alt=""></button>
     
                     <button class="orangeBtn" (click)="checkPrio('medium')"
                         [ngClass]="{'btn-active': priority == 'medium'}" 
                         [ngStyle]="{'background-color': priority == 'medium' ? 'rgb(255, 168, 0)' : 'white'}"
-                    >Medium<img src="assets/img/prio_media.svg" alt=""></button>
+                    ><span>Medium</span><img src="assets/img/prio_media.svg" alt=""></button>
                     
                     <button class="redBtn" (click)="checkPrio('high')" 
                         [ngClass]="{'btn-active': priority == 'high'}" 
                         [ngStyle]="{'background-color': priority == 'high' ? 'rgb(255, 66, 6)' : 'white'}"
-                    >High<img src="assets/img/prio_alta.svg" alt=""></button>
+                    ><span>High</span><img src="assets/img/prio_alta.svg" alt=""></button>
                 </div>
         <!-------------users----------------->
                 <div class="assignetToBox">

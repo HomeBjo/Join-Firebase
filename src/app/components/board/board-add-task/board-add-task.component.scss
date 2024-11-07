@@ -34,6 +34,7 @@ section{
         img{
             transition: 0.3 ease-in-out;
             cursor: pointer;
+            margin-right: -13px;
             &:hover{
                 scale: 1.1;
             }
@@ -141,8 +142,6 @@ input{
         @include displayFlex($g: 12px);
         width: 32%;
         height: 44px;
-        font-size: 19px;
-        font-weight: 400;
         cursor: pointer;
         background: white;
         border: 0px;
@@ -152,6 +151,10 @@ input{
             width: 20px;
             height: 20px;
             object-fit: contain;
+        }
+        span{
+            font-size: 19px;
+            font-weight: 400;
         }
     }
     .greenBtn:hover {
@@ -524,6 +527,24 @@ input{
         z-index: 20;
         background-color: rgba(128, 128, 128, 0.25);
     }
+
+    .prioBoxBtns{
+        margin-top: 12px;
+        margin-bottom: 12px;
+        @include displayFlex($j: space-around);
+        width: 100%;
+        button{
+            width: 30%;
+            @include displayFlex($g: 4px);
+            img{
+                width: 14px;
+                height: 14px;
+            }
+            span{
+                font-size: 14px;
+            }
+        }
+    }
 }
 
 @media (max-width: 1000px) {
@@ -597,25 +618,6 @@ input{
         }
     }
 
-    .prioBoxBtns{
-        margin-top: 12px;
-        margin-bottom: 12px;
-        @include displayFlex($j: space-around);
-        width: 100%;
-        button{
-            width: 30%;
-            @include displayFlex($g: 0px);
-            flex-direction: column-reverse;
-            height: 40px;
-            font-size: 14px;
-            img{
-                width: 16px;
-                height: 16px;
-            }
-        }
-    }
-    
-
     .positionBtn{
         display: flex;
         justify-content: space-evenly;
@@ -650,5 +652,26 @@ input{
         }
     }
     
-    
+    @media (max-width: 500px) {
+        .prioBoxBtns{
+            margin-top: 12px;
+            margin-bottom: 12px;
+            @include displayFlex($j: space-around);
+            width: 100%;
+            button{
+                width: 30%;
+                @include displayFlex($g: 0px);
+                flex-direction: column-reverse;
+                // height: 40px;
+                // font-size: 14px;
+                img{
+                    width: 16px;
+                    height: 16px;
+                }
+                span {
+                    display: none;
+                }
+            }
+        }
+    }
 }

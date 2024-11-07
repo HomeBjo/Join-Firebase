@@ -29,8 +29,10 @@ section{
     height: 80dvh;
     background-color: white;
     border-radius: 32px;
-    padding: 24px;
     max-width: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 1380px) {

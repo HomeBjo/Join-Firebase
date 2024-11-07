@@ -2,29 +2,7 @@
     <div class="grayBackround" (click)="closeWindow()"></div>
     @if(!toggleService.openEditCard){
         <app-card-details class="whiteBox"></app-card-details>
-        <!-- <app-card-details class="whiteBox"
-            [category]="category"
-            [assignetTo]="assignetTo"
-            [createtBy]="createtBy"
-            [date]="date"
-            [description]="description"
-            [priority]="priority"
-            [subtasks]="subtasks"
-            [title]="title"
-            [id]="id"
-        ></app-card-details> -->
     } @else {
         <app-card-edit class="whiteBox"></app-card-edit>
-        <!-- <app-card-edit class="whiteBox"
-            [category]="category"
-            [assignetTo]="assignetTo"
-            [createtBy]="createtBy"
-            [date]="date"
-            [description]="description"
-            [priority]="priority"
-            [subtasks]="subtasks"
-            [title]="title"
-            [id]="id"
-        ></app-card-edit> -->
     }
 </section>

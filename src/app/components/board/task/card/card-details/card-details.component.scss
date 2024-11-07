@@ -1,8 +1,8 @@
 @import "../../../../../../styles.scss";
 
 section{
-    width: 100%;
-    height: 100%;
+    width:  calc(100% - 44px);
+    height: calc(100% - 44px);
     @include displayFlex($j: flex-start, $a:flex-start);
     flex-direction: column;
     position: relative;
@@ -11,7 +11,8 @@ section{
 
 .imgBox{
     width: 100%;
-    height: auto;
+    position: relative;
+    height: 32px;
     .closeImg{
         position: absolute;
         top: 0;
@@ -154,7 +155,11 @@ label{cursor: pointer;}
 @media (max-width: 620px) {
     .everythingInIt{
         .assignetTo{
+            display: flex;
+            flex-direction: column;
             .contactBox{
+                width: 100%;
+                margin-left: 0;
                 .userNameBox{
                     .userBackground{
                         font-size: smaller;
@@ -164,13 +169,7 @@ label{cursor: pointer;}
         }
     }
 }
-@media (max-width: 430px) {
-.userNameBox{
-         flex-direction: column; 
-     text-align: center;
-}
 
-}
 @media (max-width: 440px) {
 
     .everythingInIt{
@@ -219,8 +218,9 @@ label{cursor: pointer;}
             }
             .buttonBoxposition{
                 width: calc(100% - 8px);
-                margin-right: 8px;
+                margin: 0;
                 flex-direction: column-reverse;
+                align-items: flex-end;
                 button{
                     @include displayFlex($g: 4px); 
                     border: 2px solid #176cff;
@@ -229,9 +229,7 @@ label{cursor: pointer;}
             }
         }
     }
-   
 }
-
 @media (max-width: 381px) {
     .assignetTo{
         flex-direction: column;

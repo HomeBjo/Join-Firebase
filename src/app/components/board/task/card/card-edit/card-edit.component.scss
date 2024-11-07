@@ -8,15 +8,18 @@ section{
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
+    padding: 24px;
 }
 
 .positionCloseX{
     width: 100%;
-    height: auto;
-    @include displayFlex($j: flex-end);
+    position: relative;
+    height: 32px;
     img{
-        margin-right: -6px;
-        transition: 0.3 ease-in-out;
+        transform: 0.3 ease-in-out;
+        position: absolute;
+        top: 0;
+        right: -13px;
         &:hover{
             scale: 1.1;
         }
@@ -46,7 +49,7 @@ section{
 .decriptionBox{
     width: 100%;
     textarea{
-        height: 93px;
+        height: 120px;
         border: 1px solid;
         border-color: rgba(209, 209, 209, 1);
         border-radius: 0px 10px 10px 10px;
@@ -302,22 +305,6 @@ section{
     .ClearBtn:hover .clearBtnImg{
         filter: invert(47%) sepia(53%) saturate(6716%) hue-rotate(208deg) brightness(101%) contrast(101%);
     }
-    // .createTaskBtn {
-    //     width: 174px;
-    //     height: 61px;
-    //     border-radius: 10px;
-    //     color: black;
-    //     font-size: 22px;
-    //     cursor: pointer;
-    //     background-color: #4589ff;
-    //     border: 1px solid #4589ff;
-    //     animation: 0.3s acriveBtn;
-        
-    // }
-    // .createTaskBtn:hover {
-    //     background-color: #176cff;
-    //     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    // }
 }
 
 @keyframes acriveBtn {

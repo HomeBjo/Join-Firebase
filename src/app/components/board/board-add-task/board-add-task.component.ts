@@ -127,7 +127,6 @@ export class BoardAddTaskComponent {
     const taskMsg = this.subtaskArray.indexOf(task);
     if (taskMsg !== -1) {
       this.subtaskArray.splice(taskMsg, 1);
-      // this.chackedUser.splice(taskMsg, 1); 
     }
   }
 

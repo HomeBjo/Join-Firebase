@@ -52,16 +52,6 @@
                 <img src="assets/img/arrow_drop_down.svg" alt="">
             </div>
             <div class="userWindow" [ngClass]="{'dNone': showUserWindow === null, 'slideInUpUser': showUserWindow , 'slideOutDownUser': !showUserWindow}">
-                @if (chackedUser.length > 0) {
-                    <div class="checkedUsers">
-                        @for (user of chackedUser; track $index) {
-                            <div class="userRing">
-                                <span class="userTag" *ngIf="user.color!" [style.backgroundColor]="user.color!">
-                                    {{getUserFirstLetter(user)}}{{getUserSecondLetter(user)}}</span>
-                            </div>
-                        }
-                    </div>
-                }
                 @for(user of getContactsFromCurrenUser(); track $index){
                     <div class="loadedUsers" (click)="addUser(user, $event)">
                         <div class="ringFromUser">
@@ -75,6 +65,16 @@
                     </div>
                 }
             </div>
+            @if (chackedUser.length > 0) {
+                <div class="checkedUsers">
+                    @for (user of chackedUser; track $index) {
+                        <div class="userRing">
+                            <span class="userTag" *ngIf="user.color!" [style.backgroundColor]="user.color!">
+                                {{getUserFirstLetter(user)}}{{getUserSecondLetter(user)}}</span>
+                        </div>
+                    }
+                </div>
+            }
         </div>
         <!-------------chategory----------------->
         <div class="categoryBox">

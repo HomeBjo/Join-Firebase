@@ -14,16 +14,6 @@ import { TasksService } from '../../../../../service/tasks.service';
   styleUrl: './card-details.component.scss'
 })
 export class CardDetailsComponent {
-  // @Input() category: any;
-  // @Input() category: string = '';
-  // @Input() id: string = '';
-  // @Input() createtBy: string = '';
-  // @Input() date: string = '';
-  // @Input() description: string = '';
-  // @Input() priority: string = '';
-  // @Input() title: string = '';
-  // @Input() assignetTo: User[] = [];
-  // @Input() subtasks: any[] = [];
 
   constructor(private userService: UsersService, public toggleService: ToggleBooleansService, public taskService: TasksService){}
 

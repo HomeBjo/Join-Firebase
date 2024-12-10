@@ -9,7 +9,7 @@
         <!-------------descrptipon----------------->
             <div class="decriptionBox">
                 <div class="namePosition">
-                    <h2>Decription</h2>
+                    <h2>Description</h2>
                     <p>(required)</p>
                 </div>
                 <textarea name="" id="" [(ngModel)]="taskService.clickedTaskCopy[0].description"></textarea>
@@ -48,7 +48,7 @@
             <div class="assignetToBox">
                 <div class="headLetters">
                     <div class="headLine">
-                        <h2>Assignet to</h2><span>(optional)</span>
+                        <h2>Assigned to</h2><span>(optional)</span>
                     </div>
                 </div>
                 <div class="assignedSelect" (click)="openAssignedTo($event)">
@@ -107,7 +107,7 @@
                     }
                 </div>
                 <div class="email">
-                    <input type="email" placeholder="Add nea subtask" [(ngModel)]="subtask" (keypress)="addSubtaskByEnter($event)"/>
+                    <input type="email" placeholder="Add new subtask" [(ngModel)]="subtask" (keypress)="addSubtaskByEnter($event)"/>
                     <img src="assets/img/subtask_icons.svg" alt="" (click)="addSubtask()">
                 </div>
                 @if(checkSubtaskLength()){

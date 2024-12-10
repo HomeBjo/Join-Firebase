@@ -17,7 +17,7 @@
             <h2>Priority: &nbsp;&nbsp;{{taskService.clickedTask[0].priority}} <img src="assets/img/{{getProiImg()}}" alt=""></h2>
         
             <div class="assignetTo">
-                <h2>Assignet To:</h2>
+                <h2>Assigned to:</h2>
                 <div class="contactBox">
                     @for (user of taskService.clickedTask[0].assignetTo; track $index) {
                         <div class="userNameBox">
